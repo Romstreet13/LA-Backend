@@ -52,12 +52,11 @@ https://liqiudaccess-backend.herokuapp.com/api/mint-nft/
 _send a request to an endpoint:_
 
 ```
-https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?userId=1&merchant=Netflix
+http://localhost:8822/api/mint-nft/user-nft/?userAddress=0xa080c64E6a2937B327b50B75B408FBD5C739FF2B
 ```
 
 where:
 
-...?userId=1&merchant=Netflix
+...?userAddress=0xa080c64E6a2937B327b50B75B408FBD5C739FFe5
 
-userId = 1\
-merchant = Netflix
+userAddress = '0xa080c64E6a2937B327b50B75B408FBD5C739FFe5'

@@ -6,8 +6,7 @@ const getUserNFTHandler = async data => {
   let userNFT = [];
 
   for (let i = 0; i < mintNFTs.length; i += 1) {
-    mintNFTs[i].userId === Number(data.userId) &&
-      mintNFTs[i].merchant?.toLowerCase() === data.merchant?.toLowerCase() &&
+    mintNFTs[i].userAddress === data.userAddress &&
       userNFT.push({
         merchant: mintNFTs[i].merchant,
         subscriptionId: mintNFTs[i].subscriptionId,
