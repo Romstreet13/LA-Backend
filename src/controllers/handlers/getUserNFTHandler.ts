@@ -11,6 +11,7 @@ const getUserNFTHandler = async data => {
         merchant: mintNFTs[i].merchant,
         subscriptionId: mintNFTs[i].subscriptionId,
         userId: mintNFTs[i].userId,
+        transactionHash: mintNFTs[i].transactionHash,
       });
   }
 

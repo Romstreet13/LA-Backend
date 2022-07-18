@@ -16,7 +16,7 @@ export default (sequelize: Model) => {
       subscriptionId: {
         type: DataType.INTEGER,
         field: 'subscriptionId',
-        unique: true,
+        // unique: true,
       },
       userAddress: { type: DataType.STRING, field: 'userAddress' },
       userId: { type: DataType.INTEGER, field: 'userId' },
