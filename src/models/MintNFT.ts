@@ -2,8 +2,8 @@ import DataType from 'sequelize';
 import { Model } from './types/model.model';
 
 export default (sequelize: Model) => {
-  const MintNFT = sequelize.define(
-    'MintNFT',
+  const MintNFT_dev = sequelize.define(
+    'MintNFT_dev',
     {
       id: {
         type: DataType.INTEGER,
@@ -25,10 +25,10 @@ export default (sequelize: Model) => {
       status: { type: DataType.STRING, field: 'status' },
     },
     {
-      tableName: 'mintNFT',
+      tableName: 'mintNFT_dev',
       timestamps: true,
     }
   );
 
-  return MintNFT;
+  return MintNFT_dev;
 };

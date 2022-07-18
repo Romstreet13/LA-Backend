@@ -2,14 +2,12 @@
 import db from '../db/connect';
 
 // GET
-const getMintNFT = async () => await db.MintNFT.findAll();
+const getAllMintNFTs = async () => await db.MintNFT_dev.findAll();
 
 // POST
 const createMintNFT = async data => {
-  console.log('data:', data);
-
   try {
-    const result = await db.MintNFT.create(data);
+    const result = await db.MintNFT_dev.create(data);
     return result.dataValues;
   } catch (err) {
     return err.message;
@@ -17,6 +15,6 @@ const createMintNFT = async data => {
 };
 
 export default {
-  getMintNFT,
+  getAllMintNFTs,
   createMintNFT,
 };
