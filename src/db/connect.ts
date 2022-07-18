@@ -7,6 +7,8 @@ import Test from '../models/Test';
 
 let db = {};
 
+const uri = 'postgres://wgfdqmwiwkykek:03e396aeabcb331f419ea54ec8abfd6aa616a9654d4ccc9bd98e945f550affb2@ec2-54-228-32-29.eu-west-1.compute.amazonaws.com:5432/d4a1s14vvt808v'
+
 /* Postgres
 export const sequelize = new Sequelize({
   username: process.env.POSTGRES_USER,
@@ -31,13 +33,14 @@ export const sequelize = new Sequelize({
 */
 
 // /* Heroku
-export const sequelize = new Sequelize({
-  username: process.env.LA_HEROKU_POSTGRES_USER,
-  password: process.env.LA_HEROKU_POSTGRES_PASSWORD,
-  database: process.env.LA_HEROKU_POSTGRES_DB,
-  host: process.env.LA_HEROKU_POSTGRES_HOST || 'localhost',
-  port: 5432,
-  dialect: 'postgres',
+export const sequelize = new Sequelize(uri,
+  {
+  // username: process.env.LA_HEROKU_POSTGRES_USER,
+  // password: process.env.LA_HEROKU_POSTGRES_PASSWORD,
+  // database: process.env.LA_HEROKU_POSTGRES_DB,
+  // host: process.env.LA_HEROKU_POSTGRES_HOST || 'localhost',
+  // port: 5432,
+  // dialect: 'postgres',
   query: {
     raw: true,
   },
