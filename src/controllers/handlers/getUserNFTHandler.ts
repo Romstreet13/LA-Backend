@@ -12,11 +12,12 @@ const getUserNFTHandler = async data => {
     for (let i = 0; i < mintNFTs.length; i += 1) {
       // const result = await NFTIDsService.getNFTID(mintNFTs[i].transactionHash);
 
-      const nftKeys = Object.keys(mintNFTs[i]);
+      // const nftKeys = Object.keys(mintNFTs[i]);
 
       mintNFTs[i].userAddress === data.userAddress &&
         userNFT.push({
-          nftId: nftKeys.includes('nftId') ? mintNFTs[i].nftId : 'no id',
+          nftId: '!!!!!!!',
+          // nftId: nftKeys.includes('nftId') ? mintNFTs[i].nftId : 'no id',
           merchant: mintNFTs[i].merchant,
           subscriptionId: mintNFTs[i].subscriptionId,
           userId: mintNFTs[i].userId,
