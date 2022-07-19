@@ -22,7 +22,7 @@ const safeMintHandler = async data => {
     const allNFTIDs = await NFTIDsService.getAllNFTIDs();
 
     const NFTID = await NFTIDsService.createNFTID({
-      nftId: allNFTIDs.length === 0 ? 1 : allNFTIDs.length + 1,
+      nftId: allNFTIDs?.length === 0 ? 1 : allNFTIDs?.length + 1,
       transactionHash: result?.txHash,
       userAddress: data.userAddress,
     });
@@ -31,7 +31,8 @@ const safeMintHandler = async data => {
       typeof _response === 'string'
         ? _response
         : {
-            nftId: NFTID.nftId,
+            // nftId: NFTID.nftId,
+            nftId: '!!!-!!!',
             merchant: _response.merchant,
             subscriptionId: _response.subscriptionId,
             userId: _response.userId,
