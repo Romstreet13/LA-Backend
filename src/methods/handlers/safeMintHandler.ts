@@ -19,19 +19,19 @@ const safeMintHandler = async data => {
       transactionHash: result?.txHash,
     });
 
-    // const allNFTIDs = await NFTIDsService.getAllNFTIDs();
+    const allNFTIDs = await NFTIDsService.getAllNFTIDs();
 
-    // const NFTID = await NFTIDsService.createNFTID({
-    //   nftId: allNFTIDs.length === 0 ? 1 : allNFTIDs.length + 1,
-    //   transactionHash: result?.txHash,
-    //   userAddress: data.userAddress,
-    // });
+    const NFTID = await NFTIDsService.createNFTID({
+      nftId: allNFTIDs.length === 0 ? 1 : allNFTIDs.length + 1,
+      transactionHash: result?.txHash,
+      userAddress: data.userAddress,
+    });
 
     const respons =
       typeof _response === 'string'
         ? _response
         : {
-            // nftId: NFTID.nftId,
+            nftId: NFTID.nftId,
             merchant: _response.merchant,
             subscriptionId: _response.subscriptionId,
             userId: _response.userId,
