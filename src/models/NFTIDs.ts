@@ -18,6 +18,7 @@ export default (sequelize: Model) => {
         field: 'nftId',
       },
       transactionHash: { type: DataType.STRING, field: 'transactionHash' },
+      userAddress: { type: DataType.STRING, field: 'userAddress' },
     },
     {
       tableName: 'nftIds',

@@ -24,6 +24,7 @@ const safeMintHandler = async data => {
     const NFTID = await NFTIDsService.createNFTID({
       nftId: allNFTIDs.length === 0 ? 1 : allNFTIDs.length + 1,
       transactionHash: result?.txHash,
+      userAddress: data.userAddress,
     });
 
     const respons =
