@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { Sequelize } from 'sequelize';
 import MintNFT from '../models/MintNFT';
+import NFTIDs from '../models/NFTIDs';
 import TransferNFT from '../models/TransferNFT';
 import StartBlock from '../models/StartBlock';
 import Test from '../models/Test';
@@ -62,7 +63,7 @@ export const sequelize = new Sequelize(uri, {
 });
 // */
 
-const Models = [MintNFT, TransferNFT, StartBlock, Test];
+const Models = [MintNFT, NFTIDs, TransferNFT, StartBlock, Test];
 
 Models.forEach(model => {
   const seqModel = model(sequelize);
