@@ -47,12 +47,12 @@ _send a request to an endpoint:_
 https://liqiudaccess-backend.herokuapp.com/api/mint-nft/
 ```
 
-### Get user NFT by userId and merchantId
+### Get user NFT by userAddress
 
 _send a request to an endpoint:_
 
 ```
-http://localhost:8822/api/mint-nft/user-nft/?userAddress=0xa080c64E6a2937B327b50B75B408FBD5C739FF2B
+https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?userAddress=0xa080c64E6a2937B327b50B75B408FBD5C739FF2B
 ```
 
 where:
@@ -60,3 +60,19 @@ where:
 ...?userAddress=0xa080c64E6a2937B327b50B75B408FBD5C739FFe5
 
 userAddress = '0xa080c64E6a2937B327b50B75B408FBD5C739FFe5'
+
+### Get user NFT by userId, subscriptionId and merchant
+
+_send a request to an endpoint:_
+
+```
+https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?userId=1&subscriptionId=82&merchant=Netflix
+```
+
+where:
+
+...?userId=1&subscriptionId=82&merchant=Netflix
+
+userId = 1\
+subscriptionId = 82\
+merchant = 'Netflix'
