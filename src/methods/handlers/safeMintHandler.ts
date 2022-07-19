@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { safeMint } from '../write';
 import mintNFTService from '../../services/mintNFT.service';
+import { v4 as uuid } from 'uuid';
 // import NFTIDsService from '../../services/NFTIDs.service';
 
 const safeMintHandler = async data => {
@@ -32,7 +33,7 @@ const safeMintHandler = async data => {
         ? _response
         : {
             // nftId: NFTID.nftId,
-            nftId: '!!!-!!!',
+            nftId: uuid(),
             merchant: _response.merchant,
             subscriptionId: _response.subscriptionId,
             userId: _response.userId,
