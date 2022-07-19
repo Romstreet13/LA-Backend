@@ -4,20 +4,19 @@ import mintNFTService from '../../services/mintNFT.service';
 
 const getUserNFTHandler = async data => {
   const mintNFTs = await mintNFTService.getAllMintNFTs();
-  const keys = Object.keys(data);
+  const dataKeys = Object.keys(data);
 
   let userNFT = [];
 
-  if (keys[0] === 'userAddress') {
+  if (dataKeys[0] === 'userAddress') {
     for (let i = 0; i < mintNFTs.length; i += 1) {
       // const result = await NFTIDsService.getNFTID(mintNFTs[i].transactionHash);
 
-      console.log('mintNFTs[i]:', mintNFTs[i]);
+      const nftKeys = Object.keys(mintNFTs[i]);
 
       mintNFTs[i].userAddress === data.userAddress &&
         userNFT.push({
-          // nftId: result.length > 0 ? result[0]?.nftId : 'no id',
-          nftId: mintNFTs[i].nftId,
+          nftId: nftKeys.includes('nftId') ? mintNFTs[i].nftId : 'no id',
           merchant: mintNFTs[i].merchant,
           subscriptionId: mintNFTs[i].subscriptionId,
           userId: mintNFTs[i].userId,
@@ -27,7 +26,9 @@ const getUserNFTHandler = async data => {
   }
 
   if (
-    (keys[0] === 'userId', keys[1] === 'subscridtionId', keys[2] === 'merchant')
+    (dataKeys[0] === 'userId',
+    dataKeys[1] === 'subscridtionId',
+    dataKeys[2] === 'merchant')
   ) {
     for (let i = 0; i < mintNFTs.length; i += 1) {
       mintNFTs[i].userId === Number(data.userId) &&
