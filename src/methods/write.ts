@@ -23,7 +23,7 @@ export const safeMint = async (userAddress, subscriptionId) => {
         txHash = hash;
       });
 
-    return result;
+    return { result, txHash };
   } catch (err) {
     console.log('ERROR in transactions/index (safeMint):', err.message);
 

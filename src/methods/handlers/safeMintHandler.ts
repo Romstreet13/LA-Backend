@@ -15,7 +15,7 @@ const safeMintHandler = async data => {
       userId: data.userId,
       userAddress: data.userAddress,
       status: 'success',
-      transactionHash: result?.transactionHash,
+      transactionHash: result?.txHash,
     };
 
     const _response = await mintNFTService.createMintNFT(newNFT);
