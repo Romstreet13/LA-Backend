@@ -20,7 +20,9 @@ LA_HEROKU_POSTGRES_HOST = ''
 LA_HEROKU_PORT_DB = 5432
 ```
 
-### Create NFT
+---
+
+## Create NFT
 
 _send a request to an endpoint:_
 
@@ -39,7 +41,9 @@ _which includes such an object:_
 }
 ```
 
-### Get all minted NFTs
+---
+
+## Get all minted NFTs
 
 _send a request to an endpoint:_
 
@@ -47,7 +51,9 @@ _send a request to an endpoint:_
 https://liqiudaccess-backend.herokuapp.com/api/mint-nft/
 ```
 
-### Get user NFT by userAddress
+---
+
+## Get user NFT by userAddress
 
 _send a request to an endpoint:_
 
@@ -61,7 +67,9 @@ where:
 
 userAddress = '0xa080c64E6a2937B327b50B75B408FBD5C739FFe5'
 
-### Get user NFT by userId, subscriptionId and merchant
+---
+
+## Get user NFT by userId, subscriptionId and merchant
 
 _send a request to an endpoint:_
 
