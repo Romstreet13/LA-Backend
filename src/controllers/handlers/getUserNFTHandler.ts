@@ -16,7 +16,6 @@ const getUserNFTHandler = async data => {
 
       mintNFTs[i].userAddress === data.userAddress &&
         userNFT.push({
-          nftId: '!!!!!!!',
           // nftId: nftKeys.includes('nftId') ? mintNFTs[i].nftId : 'no id',
           merchant: mintNFTs[i].merchant,
           subscriptionId: mintNFTs[i].subscriptionId,

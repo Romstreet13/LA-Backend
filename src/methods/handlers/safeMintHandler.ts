@@ -11,7 +11,7 @@ const safeMintHandler = async data => {
     return result;
   } else {
     const _response = await mintNFTService.createMintNFT({
-      nftId: uuid(),
+      // nftId: uuid(),
       merchant: data.merchant,
       subscriptionId: data.subscriptionId,
       userId: data.userId,

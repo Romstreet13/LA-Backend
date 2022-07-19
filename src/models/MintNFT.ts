@@ -13,10 +13,10 @@ export default (sequelize: Model) => {
         allowNull: false,
         field: 'id',
       },
-      nftId: {
-        type: DataType.STRING,
-        field: 'nftId',
-      },
+      // nftId: {
+      //   type: DataType.STRING,
+      //   field: 'nftId',
+      // },
       subscriptionId: {
         type: DataType.INTEGER,
         field: 'subscriptionId',
