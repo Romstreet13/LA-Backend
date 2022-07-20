@@ -2,8 +2,8 @@ import DataType from 'sequelize';
 import { Model } from './types/model.model';
 
 export default (sequelize: Model) => {
-  const NFTIDs = sequelize.define(
-    'NFTIDs',
+  const NFT = sequelize.define(
+    'NFT',
     {
       id: {
         type: DataType.INTEGER,
@@ -21,10 +21,10 @@ export default (sequelize: Model) => {
       userAddress: { type: DataType.STRING, field: 'userAddress' },
     },
     {
-      tableName: 'nftIds',
+      tableName: 'nft',
       timestamps: true,
     }
   );
 
-  return NFTIDs;
+  return NFT;
 };

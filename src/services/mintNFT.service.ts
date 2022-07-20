@@ -4,8 +4,8 @@ import db from '../db/connect';
 // GET
 const getAllMintNFTs = async () => await db.MintNFT.findAll();
 
-// GET NFT by three items
-const getNFTID = async data => {
+// GET specific NFT by three values
+const getNFT = async data => {
   return await db.MintNFT.findAll({
     where: {
       merchant: data.merchant,
@@ -27,6 +27,6 @@ const createMintNFT = async data => {
 
 export default {
   getAllMintNFTs,
-  getNFTID,
+  getNFT,
   createMintNFT,
 };

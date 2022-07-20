@@ -2,11 +2,11 @@
 import db from '../db/connect';
 
 // GET all IDs
-const getAllNFTIDs = async () => await db.NFTIDs.findAll();
+const getAllNFTIDs = async () => await db.NFT.findAll();
 
 // GET ID by transactionHash
 const getNFTID = async data => {
-  return await db.NFTIDs.findAll({
+  return await db.NFT.findAll({
     where: {
       transactionHash: data,
     },
@@ -16,7 +16,7 @@ const getNFTID = async data => {
 // POST
 const createNFTID = async data => {
   try {
-    const result = await db.NFTIDs.create(data);
+    const result = await db.NFT.create(data);
     return result.dataValues;
   } catch (err) {
     return err.message;

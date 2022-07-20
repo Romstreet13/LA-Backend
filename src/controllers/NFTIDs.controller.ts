@@ -1,6 +1,6 @@
-// // @ts-nocheck
+// @ts-nocheck
 import { Request, Response } from 'express';
-import NFTIDsService from '../services/NFTIDs.service';
+import NFTIDsService from '../services/NFT.service';
 
 // GET all IDs
 const getAllNFTIDs = async (req: Request, res: Response) => {
