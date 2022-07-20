@@ -14,7 +14,7 @@ export default (sequelize: Model) => {
         field: 'id',
       },
       nftId: {
-        type: DataType.STRING,
+        type: DataType.INTEGER,
         field: 'nftId',
       },
       subscriptionId: {
