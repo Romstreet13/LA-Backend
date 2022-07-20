@@ -1,17 +1,28 @@
 // @ts-nocheck
 import { safeMint } from '../write';
 import mintNFTService from '../../services/mintNFT.service';
-import { v4 as uuid } from 'uuid';
+import NFTIDsService from '../../services/NFTIDs.service';
 
 const safeMintHandler = async data => {
-  // const result = { transactionHash: '0x3092e93befbca786c3...' }; // * test
-  const result = await safeMint(data.userAddress, data.subscriptionId); // * dev
+  const result = await safeMint(data.userAddress, data.subscriptionId);
+
+  let _NFTID = 0;
+
+  const allNFTIDs = await NFTIDsService.getAllNFTIDs();
+
+  _NFTID = allNFTIDs.length === 0 ? 1 : allNFTIDs.length + 1;
+
+  NFTIDsService.createNFTID({
+    nftId: _NFTID,
+    transactionHash: result?.txHash,
+    userAddress: data.userAddress,
+  });
 
   if (typeof result === 'string') {
     return result;
   } else {
     const _response = await mintNFTService.createMintNFT({
-      nftId: uuid(),
+      nftId: _NFTID,
       merchant: data.merchant,
       subscriptionId: data.subscriptionId,
       userId: data.userId,

@@ -86,3 +86,13 @@ subscriptionId = 82\
 merchant = 'Netflix'
 
 ---
+
+## Get all NFT IDs
+
+_send a request to an endpoint:_
+
+```
+https://liqiudaccess-backend.herokuapp.com/api/nft-ids/
+```
+
+---
