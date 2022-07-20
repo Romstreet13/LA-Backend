@@ -1,12 +1,10 @@
 // @ts-nocheck
 import { safeMint } from '../write';
 import mintNFTService from '../../services/mintNFT.service';
-import NFTIDsService from '../../services/NFTIDs.service';
+import NFTIDsService from '../../services/NFT.service';
 
 const safeMintHandler = async data => {
-  const _specificNFT = await mintNFTService.getNFTID(data);
-
-  console.log('_allNFTs:', _specificNFT);
+  const _specificNFT = await mintNFTService.getNFT(data);
 
   if (
     _specificNFT.length > 0 &&
@@ -18,8 +16,6 @@ const safeMintHandler = async data => {
   const result = await safeMint(data.userAddress, data.subscriptionId);
 
   let _NFTID = 0;
-
-  console.log('data:', data);
 
   const allNFTIDs = await NFTIDsService.getAllNFTIDs();
 

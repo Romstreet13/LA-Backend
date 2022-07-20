@@ -1,18 +1,15 @@
 // @ts-nocheck
 import { Sequelize } from 'sequelize';
 import MintNFT from '../models/MintNFT';
-import NFTIDs from '../models/NFTIDs';
-// import TransferNFT from '../models/TransferNFT';
-// import StartBlock from '../models/StartBlock';
-// import Test from '../models/Test';
+import NFT from '../models/NFT';
+import TransferNFT from '../models/TransferNFT';
+import { URI } from '../constants';
 
 let db = {};
+const uri = URI;
 
-const uri =
-  'postgres://wgfdqmwiwkykek:03e396aeabcb331f419ea54ec8abfd6aa616a9654d4ccc9bd98e945f550affb2@ec2-54-228-32-29.eu-west-1.compute.amazonaws.com:5432/d4a1s14vvt808v';
-
-/* Postgres
-export const sequelize = new Sequelize({
+// Localhost
+export const sequelizeLocalhost = new Sequelize({
   username: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
@@ -32,16 +29,9 @@ export const sequelize = new Sequelize({
     idle: 10000,
   },
 });
-*/
 
-// /* Heroku
-export const sequelize = new Sequelize(uri, {
-  // username: process.env.LA_HEROKU_POSTGRES_USER,
-  // password: process.env.LA_HEROKU_POSTGRES_PASSWORD,
-  // database: process.env.LA_HEROKU_POSTGRES_DB,
-  // host: process.env.LA_HEROKU_POSTGRES_HOST || 'localhost',
-  // port: 5432,
-  // dialect: 'postgres',
+// Heroku
+const sequelizeHeroku = new Sequelize(uri, {
   query: {
     raw: true,
   },
@@ -61,9 +51,11 @@ export const sequelize = new Sequelize(uri, {
     },
   },
 });
-// */
 
-const Models = [MintNFT, NFTIDs];
+export const sequelize = sequelizeHeroku; // * Heroku
+// export const sequelize = sequelizeLocalhost; // * Localhost
+
+const Models = [MintNFT, NFT, TransferNFT];
 
 Models.forEach(model => {
   const seqModel = model(sequelize);

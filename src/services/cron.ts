@@ -3,7 +3,6 @@ import cron from 'node-cron';
 import db from '../db/connect';
 import logs from '../logs';
 import startServer from '../helpers/startServer';
-// import checkEvents from '../helpers/checkEvents'; // *
 
 export const Cron = async values => {
   await dbSync(values);
