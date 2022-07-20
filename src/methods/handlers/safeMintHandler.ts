@@ -4,9 +4,22 @@ import mintNFTService from '../../services/mintNFT.service';
 import NFTIDsService from '../../services/NFTIDs.service';
 
 const safeMintHandler = async data => {
+  const _specificNFT = await mintNFTService.getNFTID(data);
+
+  console.log('_allNFTs:', _specificNFT);
+
+  if (
+    _specificNFT.length > 0 &&
+    _specificNFT[0].subscriptionId === data.subscriptionId
+  ) {
+    return 'NFT with this subscriptionId already exists';
+  }
+
   const result = await safeMint(data.userAddress, data.subscriptionId);
 
   let _NFTID = 0;
+
+  console.log('data:', data);
 
   const allNFTIDs = await NFTIDsService.getAllNFTIDs();
 
