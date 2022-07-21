@@ -7,7 +7,7 @@ import { la, la_ropsten } from '../contracts/config';
 export const safeMint = async (userAddress, subscriptionId) => {
   console.log('safeMint run...');
 
-  const BSC2 = new Web3(networks.bsc_main);
+  // const BSC2 = new Web3(networks.bsc_main);
 
   const { BSC, contract, accounts } = la_ropsten;
   let txHash = '';
