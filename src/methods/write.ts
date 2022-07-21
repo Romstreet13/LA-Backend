@@ -12,8 +12,6 @@ export const safeMint = async (userAddress, subscriptionId) => {
   const { BSC, contract, accounts } = la_ropsten;
   let txHash = '';
 
-  console.log('accounts -->', accounts);
-
   try {
     BSC.eth.accounts.wallet.add(accounts);
     let gasPrice = await BSC.eth.getGasPrice();
