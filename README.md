@@ -56,7 +56,7 @@ _response:_
 
 ## Get all minted NFTs
 
-_send a request to an endpoint:_
+_endpoint:_
 
 ```
 https://liqiudaccess-backend.herokuapp.com/api/mint-nft/
