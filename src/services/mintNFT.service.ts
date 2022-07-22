@@ -17,6 +17,8 @@ const getNFT = async data => {
 
 // POST
 const createMintNFT = async data => {
+  console.log(' - createMintNFT run...');
+
   try {
     const result = await db.MintNFT.create(data);
     return result.dataValues;
