@@ -17,6 +17,8 @@ const safeMintHandler = async data => {
 
   const allNFT = await NFTService.getAllNFT();
 
+  console.log(' - got result from blockchain:', result);
+
   if (typeof result === 'string') return result;
 
   _nftId = allNFT.length === 0 ? 131 : allNFT[allNFT.length - 1].nftId + 1;
