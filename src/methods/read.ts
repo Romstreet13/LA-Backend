@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { la, la_ropsten } from '../contracts/config';
+import { la_mumbai, la_ropsten } from '../contracts/config';
 
 export const userTokens = async account => {
   const _userTokens = await la_ropsten.contract.methods
@@ -10,7 +10,7 @@ export const userTokens = async account => {
 
 /*
 export const userTokens = async account => {
-  const _userTokens = await la.contract.methods.userTokens(account).call();
+  const _userTokens = await la_mumbai.contract.methods.userTokens(account).call();
   return _userTokens;
 };
 */

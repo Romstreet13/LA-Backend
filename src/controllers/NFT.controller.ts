@@ -1,13 +1,13 @@
 // @ts-nocheck
 import { Request, Response } from 'express';
-import NFTIDsService from '../services/NFT.service';
+import NFTService from '../services/NFT.service';
 
 // GET all IDs
-const getAllNFTIDs = async (req: Request, res: Response) => {
-  const allNFTIDs = await NFTIDsService.getAllNFTIDs();
-  res.status(200).send(allNFTIDs);
+const getAllNFT = async (req: Request, res: Response) => {
+  const allNFT = await NFTService.getAllNFT();
+  res.status(200).send(allNFT);
 };
 
 export default {
-  getAllNFTIDs,
+  getAllNFT,
 };
