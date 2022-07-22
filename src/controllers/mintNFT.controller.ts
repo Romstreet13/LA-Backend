@@ -31,10 +31,7 @@ const getUserNFT = async (req: Request, res: Response) => {
 // POST
 const createMintNFT = async (req: Request, res: Response) => {
   console.log(' ');
-  console.log(
-    '===> create NFT run... - subscriptionId:',
-    req.body.subscriptionId
-  );
+  console.log(`===> create NFT run... (subId: ${req.body.subscriptionId})`);
 
   const response = await safeMintHandler(req.body);
   // console.log('controller:', response);
