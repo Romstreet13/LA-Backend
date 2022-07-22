@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { la_mumbai, la_ropsten } from '../contracts/config';
+import { log, updateTxHash } from '../logger';
 
 // /* ROPSTEN
 export const safeMint = async (userAddress, subscriptionId) => {
@@ -24,6 +25,10 @@ export const safeMint = async (userAddress, subscriptionId) => {
         console.log(' - txHash:', hash);
         console.log(' ');
         txHash = hash;
+        log.info(
+          'updateTxHash!',
+          updateTxHash(userAddress, subscriptionId, hash)
+        );
       });
 
     return { result, txHash };

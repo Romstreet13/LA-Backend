@@ -2,6 +2,7 @@
 import { safeMint } from '../write';
 import mintNFTService from '../../services/mintNFT.service';
 import NFTService from '../../services/NFT.service';
+import { log, save } from '../../logger';
 
 const safeMintHandler = async data => {
   console.log(' - check NFT in db...');
@@ -14,6 +15,11 @@ const safeMintHandler = async data => {
   if (_NFT.length > 0 && _NFT[0].subscriptionId === data.subscriptionId) {
     return 'NFT with this subscriptionId already exists';
   }
+
+  log.info(
+    'startMint',
+    save({ title: 'startMint', status: 'in process', ...data })
+  );
 
   // safeMint
   const result = await safeMint(data.userAddress, data.subscriptionId);
