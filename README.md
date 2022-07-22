@@ -62,6 +62,26 @@ _endpoint:_
 https://liqiudaccess-backend.herokuapp.com/api/mint-nft/
 ```
 
+_response:_
+
+```js
+[
+  {
+    id: 1,
+    nftId: 40,
+    subscriptionId: 400,
+    userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
+    userId: 1,
+    merchant: 'Megogo',
+    transactionHash:
+      '0x930725afb59ed7d00db9010a467bde7d7e78163ab5eb2bcab5589f77a050b6b7',
+    status: 'success',
+    createdAt: '2022-07-21T11:14:01.558Z',
+    updatedAt: '2022-07-21T11:14:01.558Z',
+  },
+];
+```
+
 ---
 
 ## Get user NFT by userAddress
