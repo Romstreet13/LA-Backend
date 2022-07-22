@@ -26,9 +26,11 @@ const safeMintHandler = async data => {
     userAddress: data.userAddress,
   });
 
+  console.log(' - createNFT done!');
+
   const _response = await mintNFTService.createMintNFT({
     nftId: _NFTID,
-    merchant: data.merchant,
+    merchant: data?.merchant,
     subscriptionId: data.subscriptionId,
     userId: data.userId,
     userAddress: data.userAddress,
@@ -36,15 +38,19 @@ const safeMintHandler = async data => {
     transactionHash: result?.txHash,
   });
 
+  console.log(' - createMintNFT done!');
+
   const respons =
     typeof _response === 'string'
       ? _response
       : {
-          nftId: _response.nftId,
+          nftId: _response?.nftId,
           merchant: _response.merchant,
           subscriptionId: _response.subscriptionId,
           userId: _response.userId,
         };
+
+  console.log(' - send response to the controller');
 
   return respons;
 };
