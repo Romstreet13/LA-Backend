@@ -34,8 +34,8 @@ const createMintNFT = async (req: Request, res: Response) => {
   // console.log('controller:', response);
   // setTimeout(() => checkAndShowUserTokens(), 3000);
 
-  console.log(' - got response fom safeMintHandler:', response);
-  console.log(' - send request to front...');
+  console.log(' - got response from safeMintHandler:', response);
+  console.log(' ---> send request to front!');
 
   res.status(typeof response === 'string' ? 400 : 200).send(response);
   // res.status(200).send('create mint');

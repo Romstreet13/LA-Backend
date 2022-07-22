@@ -15,7 +15,11 @@ const logs = {
   fn: {
     runServer: ({ host, port }) => {
       log(``);
-      log(`  server ★(◔.◔)★ http://${host}:${port}  `);
+      log(
+        `  server ★(◔.◔)★ http://${
+          host === undefined ? 'heroku' : host
+        }:${port}  `
+      );
       log(``);
     },
     initialBlock: (label, block) => log(`--> initBlock:`, block, `(${label})`),
