@@ -5,6 +5,8 @@ import NFTService from '../../services/NFT.service';
 
 const safeMintHandler = async data => {
   console.log(' - check NFT in db...');
+
+  // getNFT
   const _NFT = await mintNFTService.getNFT(data);
 
   let _nftId = 0;
@@ -13,6 +15,7 @@ const safeMintHandler = async data => {
     return 'NFT with this subscriptionId already exists';
   }
 
+  // safeMint
   const result = await safeMint(data.userAddress, data.subscriptionId);
 
   console.log(' - got result from blockchain:', result);
@@ -23,6 +26,7 @@ const safeMintHandler = async data => {
 
   _nftId = allNFT.length === 0 ? 131 : allNFT[allNFT.length - 1].nftId + 1;
 
+  // createNFT
   const _createdNFT = await NFTService.createNFT({
     nftId: _nftId,
     transactionHash: result?.txHash,
@@ -31,6 +35,7 @@ const safeMintHandler = async data => {
 
   _createdNFT && console.log(' - createNFT done!');
 
+  // createMintNFT
   const _response = await mintNFTService.createMintNFT({
     nftId: _nftId,
     merchant: data?.merchant,
