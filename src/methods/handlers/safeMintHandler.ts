@@ -2,29 +2,46 @@
 import { safeMint } from '../write';
 import mintNFTService from '../../services/mintNFT.service';
 import NFTService from '../../services/NFT.service';
-import { log, save } from '../../logger';
+import {
+  log,
+  createStartMint,
+  createStartMintError,
+  updateErrorMessageAndStatus,
+  updateStatus,
+} from '../../logger';
 
 const safeMintHandler = async data => {
   console.log(' - check NFT in db...');
 
+  let _nftId = 0;
+
   // getNFT
   const _NFT = await mintNFTService.getNFT(data);
 
-  let _nftId = 0;
-
   if (_NFT.length > 0 && _NFT[0].subscriptionId === data.subscriptionId) {
+    log.info(
+      ' * status: start mint error',
+      createStartMintError({
+        status: 'start mint error',
+        merchant: data.merchant,
+        userId: data.userId,
+        userAddress: data.userAddress,
+        subscriptionId: data.subscriptionId,
+        message: `NFT with this subscriptionId already exists`,
+      })
+    );
     return 'NFT with this subscriptionId already exists';
   }
 
-  log.info(
-    'startMint',
-    save({ title: 'startMint', status: 'in process', ...data })
-  );
-
   // safeMint
-  const result = await safeMint(data.userAddress, data.subscriptionId);
+  const result = await safeMint(data);
 
-  console.log(' - got result from blockchain:', result);
+  console.log(
+    ' - got result from blockchain:',
+    typeof result === 'string'
+      ? result
+      : result.txHash === result.result.transactionHash
+  );
 
   if (typeof result === 'string') return result;
 
@@ -63,6 +80,17 @@ const safeMintHandler = async data => {
           subscriptionId: _response.subscriptionId,
           userId: _response.userId,
         };
+
+  log.info(
+    ' * status: mint success',
+    updateStatus({
+      status: 'mint success',
+      userAddress: data.userAddress,
+      subscriptionId: data.subscriptionId,
+      txHash: result?.txHash,
+      nftId: _response?.nftId,
+    })
+  );
 
   console.log(' - send response to the controller');
 

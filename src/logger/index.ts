@@ -6,14 +6,29 @@ import logService from '../services/logs.service';
 export let log =
   process.env.NODE_ENV === 'develop' ? devLogger() : prodLogger();
 
-export const save = data => {
-  console.log('data:', data);
-  logService.createLog(data);
+export const createStartMint = data => {
+  console.log('createStartMint data:', data);
+  logService.createStartMint(data);
 };
 
-export const updateTxHash = (userAddress, subscriptionId, hash) => {
-  console.log('data:', userAddress, subscriptionId, hash);
-  logService.updateTxHash(userAddress, subscriptionId, hash, 'blockchain');
+export const createStartMintError = data => {
+  console.log('createStartMintError data:', data);
+  logService.createStartMintError(data);
+};
+
+export const updateTxHashAndStatus = data => {
+  console.log('updateTxHashAndStatus data:', data);
+  logService.updateTxHashAndStatus(data);
+};
+
+export const updateErrorMessageAndStatus = data => {
+  console.log('updateErrorMessageAndStatus data:', data);
+  logService.updateErrorMessageAndStatus(data);
+};
+
+export const updateStatus = data => {
+  console.log('updateStatus data:', data);
+  logService.updateStatus(data);
 };
 
 /* example:
