@@ -1,18 +1,17 @@
 // @ts-nocheck
 import db from '../db/connect';
+import { cl } from '../logger';
 
 // GET all logs
 const getAllLogs = async () => await db.Logs.findAll();
 
 // POST start mint
 const createStartMint = async data => {
-  console.log(' - createStartMint run...');
+  cl.mt(' * POST createStartMint...');
 
   try {
     const result = await db.Logs.create(data);
-
-    console.log('data:', data);
-
+    // console.log('data:', data); // *
     return result.dataValues;
   } catch (err) {
     return err.message;
@@ -21,13 +20,11 @@ const createStartMint = async data => {
 
 // POST start mint error
 const createStartMintError = async data => {
-  console.log(' - createStartMintError run...');
+  cl.mt(' * POST createStartMintError...');
 
   try {
     const result = await db.Logs.create(data);
-
-    console.log('data:', data);
-
+    // console.log('data:', data); // *
     return result.dataValues;
   } catch (err) {
     return err.message;
@@ -36,10 +33,10 @@ const createStartMintError = async data => {
 
 // UPDATE hash and status
 const updateTxHashAndStatus = async data => {
+  cl.mt(' * UPDATE updateTxHashAndStatus...');
+
   const { status, userAddress, subscriptionId, txHash } = data;
-
-  console.log('----->', status, userAddress, subscriptionId, txHash);
-
+  // console.log('updateTxHashAndStatus:', status, userAddress, subscriptionId, txHash); // *
   await db.Logs.update(
     { status: status, transactionHash: txHash },
     { where: { userAddress: userAddress, subscriptionId: subscriptionId } }
@@ -48,10 +45,10 @@ const updateTxHashAndStatus = async data => {
 
 // UPDATE error message and status
 const updateErrorMessageAndStatus = async data => {
+  cl.mt(' * UPDATE updateErrorMessageAndStatus...');
+
   const { status, userAddress, subscriptionId, message } = data;
-
-  console.log('----->', status, userAddress, subscriptionId, message);
-
+  // console.log('updateErrorMessageAndStatus:', status, userAddress, subscriptionId, message); // *
   await db.Logs.update(
     { status: status, message: message },
     {
@@ -65,10 +62,10 @@ const updateErrorMessageAndStatus = async data => {
 
 // UPDATE status
 const updateStatus = async data => {
+  cl.mt(' * UPDATE updateStatus...');
+
   const { status, userAddress, subscriptionId, nftId } = data;
-
-  console.log('----->', status, userAddress, subscriptionId, nftId);
-
+  // console.log('updateStatus:', status, userAddress, subscriptionId, nftId); // *
   await db.Logs.update(
     { status: status, nftId: nftId },
     {

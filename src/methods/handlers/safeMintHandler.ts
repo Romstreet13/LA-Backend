@@ -2,25 +2,17 @@
 import { safeMint } from '../write';
 import mintNFTService from '../../services/mintNFT.service';
 import NFTService from '../../services/NFT.service';
-import {
-  log,
-  createStartMint,
-  createStartMintError,
-  updateErrorMessageAndStatus,
-  updateStatus,
-} from '../../logger';
+import { cl, log, createStartMintError, updateStatus } from '../../logger';
 
 const safeMintHandler = async data => {
-  console.log(' - check NFT in db...');
+  cl.o(' -- checks NFT in db:');
+  const _NFT = await mintNFTService.getNFT(data);
 
   let _nftId = 0;
 
-  // getNFT
-  const _NFT = await mintNFTService.getNFT(data);
-
   if (_NFT.length > 0 && _NFT[0].subscriptionId === data.subscriptionId) {
-    log.info(
-      ' * status: start mint error',
+    log.error(
+      'start mint error',
       createStartMintError({
         status: 'start mint error',
         merchant: data.merchant,
@@ -36,8 +28,8 @@ const safeMintHandler = async data => {
   // safeMint
   const result = await safeMint(data);
 
-  console.log(
-    ' - got result from blockchain:',
+  cl.w(
+    ' -- got result from blockchain:',
     typeof result === 'string'
       ? result
       : result.txHash === result.result.transactionHash
@@ -56,7 +48,7 @@ const safeMintHandler = async data => {
     userAddress: data.userAddress,
   });
 
-  _createdNFT && console.log(' - createNFT done!');
+  _createdNFT && cl.mb(' -- createNFT success');
 
   // createMintNFT
   const _response = await mintNFTService.createMintNFT({
@@ -69,7 +61,7 @@ const safeMintHandler = async data => {
     transactionHash: result?.txHash,
   });
 
-  _response && console.log(' - createMintNFT done!');
+  _response && cl.mb(' -- createMintNFT success');
 
   const respons =
     typeof _response === 'string'
@@ -82,7 +74,7 @@ const safeMintHandler = async data => {
         };
 
   log.info(
-    ' * status: mint success',
+    'mint success',
     updateStatus({
       status: 'mint success',
       userAddress: data.userAddress,
@@ -91,8 +83,6 @@ const safeMintHandler = async data => {
       nftId: _response?.nftId,
     })
   );
-
-  console.log(' - send response to the controller');
 
   return respons;
 };

@@ -1,18 +1,9 @@
 // @ts-nocheck
 import { Request, Response } from 'express';
-import { userTokens } from '../methods/read';
 import getUserNFTHandler from './handlers/getUserNFTHandler';
-import accs from '../helpers/userAccounts';
 import mintNFTService from '../services/mintNFT.service';
 import safeMintHandler from '../methods/handlers/safeMintHandler';
-
-// userTokens (read method)
-const checkAndShowUserTokens = async () => {
-  const userTokens = await userTokens(accs.owner);
-  const userNFT = await getUserNFTHandler({ userId: '1', merchant: 'netflix' });
-  console.log('userTokens:', userTokens);
-  console.log('userNFT:', userNFT);
-};
+import { cl } from '../logger';
 
 // GET all
 const getAllMintNFTs = async (req: Request, res: Response) => {
@@ -28,16 +19,9 @@ const getUserNFT = async (req: Request, res: Response) => {
 
 // POST
 const createMintNFT = async (req: Request, res: Response) => {
-  console.log(' ');
-  console.log(`===> create NFT run... (subId: ${req.body.subscriptionId})`);
-
+  cl.w(`=======> start mint NFT (subId: ${req.body.subscriptionId})`);
   const response = await safeMintHandler(req.body);
-
-  console.log(' - got response from safeMintHandler:', response);
-  console.log(' send request to front ===>');
-
-  // setTimeout(() => checkAndShowUserTokens(), 3000); // *
-
+  cl.w(`<======= send response to front:`, response);
   res.status(typeof response === 'string' ? 400 : 200).send(response);
 };
 
