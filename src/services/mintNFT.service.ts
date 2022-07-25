@@ -1,5 +1,6 @@
 // @ts-nocheck
 import db from '../db/connect';
+import { cl } from '../logger';
 
 // GET
 const getAllMintNFTs = async () => await db.MintNFT.findAll();
@@ -17,7 +18,7 @@ const getNFT = async data => {
 
 // POST
 const createMintNFT = async data => {
-  console.log(' - createMintNFT run...');
+  cl.o(' * POST createMintNFT...');
 
   try {
     const result = await db.MintNFT.create(data);

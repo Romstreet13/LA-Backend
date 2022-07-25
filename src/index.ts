@@ -5,7 +5,7 @@ import cors from 'cors';
 import { Cron } from './services/cron';
 import routes from './routes';
 
-const host = process.env.POSTGRES_HOST || 'localhost';
+const host = process.env.POSTGRES_HOST || 'heroku';
 const port = process.env.PORT || 5001;
 const app = express();
 
@@ -14,4 +14,4 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use('/api', routes);
 
-app.listen(port, () => Cron({ port }));
+app.listen(port, () => Cron({ host, port }));

@@ -3,6 +3,7 @@ import { Sequelize } from 'sequelize';
 import MintNFT from '../models/MintNFT';
 import NFT from '../models/NFT';
 import TransferNFT from '../models/TransferNFT';
+import Logs from '../models/Logs';
 import { URI } from '../constants';
 
 let db = {};
@@ -55,7 +56,7 @@ const sequelizeHeroku = new Sequelize(uri, {
 // export const sequelize = sequelizeLocalhost; // * Localhost
 export const sequelize = sequelizeHeroku; // * Heroku
 
-const Models = [MintNFT, NFT, TransferNFT];
+const Models = [MintNFT, NFT, TransferNFT, Logs];
 
 Models.forEach(model => {
   const seqModel = model(sequelize);
