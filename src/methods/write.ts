@@ -56,7 +56,7 @@ export const safeMint = async data => {
 
     return { result, txHash };
   } catch (err) {
-    cl.mt(' --- ERROR in transactions/index (safeMint):', err.message);
+    cl.mt(' --- ERROR in safeMint():', err.message);
 
     let message = '';
 

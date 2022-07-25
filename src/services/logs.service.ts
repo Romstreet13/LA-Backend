@@ -7,7 +7,7 @@ const getAllLogs = async () => await db.Logs.findAll();
 
 // POST start mint
 const createStartMint = async data => {
-  cl.mt(' * POST createStartMint...');
+  cl.mt(' * POST createStartMint log...');
 
   try {
     const result = await db.Logs.create(data);
@@ -20,7 +20,7 @@ const createStartMint = async data => {
 
 // POST start mint error
 const createStartMintError = async data => {
-  cl.mt(' * POST createStartMintError...');
+  cl.mt(' * POST createStartMintError log...');
 
   try {
     const result = await db.Logs.create(data);
@@ -33,7 +33,7 @@ const createStartMintError = async data => {
 
 // UPDATE hash and status
 const updateTxHashAndStatus = async data => {
-  cl.mt(' * UPDATE updateTxHashAndStatus...');
+  cl.mt(' * UPDATE updateTxHashAndStatus log...');
 
   const { status, userAddress, subscriptionId, txHash } = data;
   // console.log('updateTxHashAndStatus:', status, userAddress, subscriptionId, txHash); // *
@@ -45,7 +45,7 @@ const updateTxHashAndStatus = async data => {
 
 // UPDATE error message and status
 const updateErrorMessageAndStatus = async data => {
-  cl.mt(' * UPDATE updateErrorMessageAndStatus...');
+  cl.mt(' * UPDATE updateErrorMessageAndStatus log...');
 
   const { status, userAddress, subscriptionId, message } = data;
   // console.log('updateErrorMessageAndStatus:', status, userAddress, subscriptionId, message); // *
@@ -62,7 +62,7 @@ const updateErrorMessageAndStatus = async data => {
 
 // UPDATE status
 const updateStatus = async data => {
-  cl.mt(' * UPDATE updateStatus...');
+  cl.mt(' * UPDATE updateStatus log...');
 
   const { status, userAddress, subscriptionId, nftId } = data;
   // console.log('updateStatus:', status, userAddress, subscriptionId, nftId); // *

@@ -37,7 +37,7 @@ _request:_
     "merchant": "Netflix",
     "userId": 7,
     "subscriptionId": 52,
-    "userAddress": "0xa080c64E6a2937B327b50B75B408FBD5C739FF2b"
+    "userAddress": "0xa080c64E6a2937B327b50B75B408FBD5C739FFe5"
 }
 ```
 
@@ -67,12 +67,12 @@ _response:_
 ```js
 [
   {
-    id: 1,
-    nftId: 40,
-    subscriptionId: 400,
-    userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
-    userId: 1,
-    merchant: 'Megogo',
+    id: 61,
+    nftId: 61,
+    subscriptionId: 52,
+    userAddress: '0xa080c64E6a2937B327b50B75B408FBD5C739FFe5',
+    userId: 7,
+    merchant: 'Netflix',
     transactionHash:
       '0x930725afb59ed7d00db9010a467bde7d7e78163ab5eb2bcab5589f77a050b6b7',
     status: 'success',
@@ -160,13 +160,44 @@ _response:_
 ```js
 [
   {
-    id: 1,
+    id: 61,
     nftId: 61,
     transactionHash:
       '0x96564f736c08efd9693dd8e55e6d38ed2009acce590b027f68de75c208af81d2',
     userAddress: '0xa080c64E6a2937B327b50B75B408FBD5C739FFe5',
     createdAt: '2022-07-20T14:53:24.536Z',
     updatedAt: '2022-07-20T14:53:24.536Z',
+  },
+];
+```
+
+---
+
+## Get all logs
+
+_endpoint:_
+
+```
+http://localhost:8822/api/logs/
+```
+
+_response:_
+
+```js
+[
+  {
+    id: 61,
+    nftId: 61,
+    subscriptionId: 52,
+    userAddress: '0xa080c64E6a2937B327b50B75B408FBD5C739FFe5',
+    userId: 7,
+    merchant: 'Netflix',
+    message: null,
+    status: 'mint success',
+    transactionHash:
+      '0x828022218c546f93d7d73c7901e20ed2d154de8593d68b827718b7eaee5cef22',
+    createdAt: '2022-07-25T09:05:41.135Z',
+    updatedAt: '2022-07-25T09:06:25.985Z',
   },
 ];
 ```

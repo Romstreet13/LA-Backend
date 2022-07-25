@@ -21,7 +21,7 @@ const getUserNFT = async (req: Request, res: Response) => {
 const createMintNFT = async (req: Request, res: Response) => {
   cl.w(`=======> start mint NFT (subId: ${req.body.subscriptionId})`);
   const response = await safeMintHandler(req.body);
-  cl.w(`<======= send response to front:`, response);
+  cl.w(`<======= sent response to front:`, response);
   res.status(typeof response === 'string' ? 400 : 200).send(response);
 };
 
