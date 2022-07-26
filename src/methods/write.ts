@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { la_mumbai, la_ropsten } from '../contracts/config';
+import { interval, waitForResponse } from '../helpers/waitForResponse';
 import {
   cl,
   log,
@@ -41,6 +42,7 @@ export const safeMint = async data => {
       })
       .on('transactionHash', async hash => {
         txHash = hash;
+
         cl.mt(' --- txHash:', hash);
 
         log.info(
@@ -52,9 +54,14 @@ export const safeMint = async data => {
             txHash,
           })
         );
+
+        waitForResponse(100); // setInterval
       });
 
-    return { result, txHash };
+    if (result) {
+      clearInterval(interval);
+      return { result, txHash };
+    }
   } catch (err) {
     cl.mt(' --- ERROR in safeMint():', err.message);
 
