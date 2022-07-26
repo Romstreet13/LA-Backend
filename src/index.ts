@@ -15,3 +15,4 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api', routes);
 
 app.listen(port, () => Cron({ host, port }));
+app.timeout = 100000;
