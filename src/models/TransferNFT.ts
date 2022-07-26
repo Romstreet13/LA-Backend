@@ -15,7 +15,11 @@ export default (sequelize: Model) => {
       },
       from: { type: DataType.STRING, field: 'from' },
       to: { type: DataType.STRING, field: 'to' },
-      tokenId: { type: DataType.INTEGER, field: 'tokenId', unique: true },
+      tokenId: {
+        type: DataType.INTEGER,
+        field: 'tokenId',
+        // unique: true
+      },
       transactionHash: { type: DataType.STRING, field: 'transactionHash' },
     },
     {
