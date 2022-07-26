@@ -5,14 +5,16 @@ import { cl } from '../logger';
 const getTransferNFT = async () => await db.TransferNFT.findAll();
 
 const createTransferNFT = async data => {
-  cl.mt(' * POST createNFT');
+  cl.mt(' * POST createTransferNFT');
 
-  try {
-    const result = await db.TransferNFT.create(data);
-    return result.dataValues;
-  } catch (err) {
-    return err.message;
-  }
+  console.log('data:', data);
+
+  // try {
+  //   const result = await db.TransferNFT.create(data);
+  //   return result.dataValues;
+  // } catch (err) {
+  //   return err.message;
+  // }
 };
 
 export default {
