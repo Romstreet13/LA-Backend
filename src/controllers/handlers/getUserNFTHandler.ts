@@ -7,6 +7,7 @@ const getUserNFTHandler = async data => {
 
   let userNFT = [];
 
+  // GET by userAddress:
   if (dataKeys[0] === 'userAddress') {
     for (let i = 0; i < mintNFTs.length; i += 1) {
       mintNFTs[i].userAddress === data.userAddress &&
@@ -20,6 +21,16 @@ const getUserNFTHandler = async data => {
     }
   }
 
+  // GET by two values:
+  if ((dataKeys[0] === 'merchant', dataKeys[1] === 'userAddress')) {
+    for (let i = 0; i < mintNFTs.length; i += 1) {
+      mintNFTs[i].merchant?.toLowerCase() === data.merchant?.toLowerCase() &&
+        mintNFTs[i].userAddress === data.userAddress &&
+        userNFT.push(mintNFTs[i]);
+    }
+  }
+
+  // GET by three values:
   if (
     (dataKeys[0] === 'userId',
     dataKeys[1] === 'subscridtionId',
@@ -28,7 +39,7 @@ const getUserNFTHandler = async data => {
     for (let i = 0; i < mintNFTs.length; i += 1) {
       mintNFTs[i].userId === Number(data.userId) &&
         mintNFTs[i].subscriptionId === Number(data.subscriptionId) &&
-        mintNFTs[i].merchant === data.merchant &&
+        mintNFTs[i].merchant?.toLowerCase() === data.merchant?.toLowerCase() &&
         userNFT.push({
           userAddress: mintNFTs[i].userAddress,
         });
