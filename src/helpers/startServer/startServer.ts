@@ -12,12 +12,11 @@ const startServer = async () => {
 const eventHandler = async () => {
   // console.log(LABELS.length);
 
-  const events = await getEvents();
+  // const events = await getEvents();
 
-  console.log('events:', events);
+  // console.log('events:', events);
 
   for (let i = 0; LABELS.length > i; i += 1) {
-    console.log('LABELS:', LABELS[i]);
     runCheckEvents(LABELS[0]);
   }
 };

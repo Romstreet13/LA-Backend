@@ -9,14 +9,14 @@ const createTransferNFT = async data => {
 
   // console.log('data:', data);
 
-  return data;
+  // return data;
 
-  // try {
-  //   const result = await db.TransferNFT.create(data);
-  //   return result.dataValues;
-  // } catch (err) {
-  //   return err.message;
-  // }
+  try {
+    const result = await db.TransferNFT.create(data);
+    return result.dataValues;
+  } catch (err) {
+    return err.message;
+  }
 };
 
 export default {
