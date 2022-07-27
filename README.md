@@ -147,6 +147,45 @@ _response:_
 
 ---
 
+## Get user NFT by merchant and userAddress
+
+_endpoint:_
+
+```
+https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?merchant=Netflix&userAddress=0xa080c64E6a2937B327b50B75B408FBD5C739FFe5
+```
+
+_request:_
+
+...?merchant=Netflix&userAddress=0xa080c64E6a2937B327b50B75B408FBD5C739FFe5
+
+where:
+
+merchant = Netflix\
+userAddress = 0xa080c64E6a2937B327b50B75B408FBD5C739FFe5
+
+_response:_
+
+```js
+[
+  {
+    id: 61,
+    nftId: 61,
+    subscriptionId: 52,
+    userAddress: '0xa080c64E6a2937B327b50B75B408FBD5C739FFe5',
+    userId: 7,
+    merchant: 'Netflix',
+    transactionHash:
+      '0xd581e265157e5be4caa96b0786f76b256abe28b6b0ed4a38d307944ee634fd54',
+    status: 'success',
+    createdAt: '2022-07-27T10:12:02.826Z',
+    updatedAt: '2022-07-27T10:12:02.826Z',
+  },
+];
+```
+
+---
+
 ## Get all NFT IDs
 
 _endpoint:_
