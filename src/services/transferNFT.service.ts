@@ -7,7 +7,9 @@ const getTransferNFT = async () => await db.TransferNFT.findAll();
 const createTransferNFT = async data => {
   cl.mt(' * POST createTransferNFT');
 
-  console.log('data:', data);
+  // console.log('data:', data);
+
+  return data;
 
   // try {
   //   const result = await db.TransferNFT.create(data);
