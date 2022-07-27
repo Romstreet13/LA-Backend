@@ -2,20 +2,27 @@
 import { la_ropsten } from '../../contracts/config';
 import transferNFTService from '../../services/transferNFT.service';
 
-const getEvents = async lastCount => {
+const getEvents = async (startBlock, lastCount) => {
   const { contract } = la_ropsten;
+  const _count = Number(lastCount) + 1;
 
-  console.log('- getEvents - lastCount:', Number(lastCount));
+  // console.log(
+  //   '- getEvents - startBlock and lastCount:',
+  //   startBlock,
+  //   Number(_lastCount)
+  // );
+
+  console.log('- getEvents _count:', _count);
 
   const event = await contract.getPastEvents('TransferFrom', {
     filter: {
-      count: Number(lastCount) + 1,
+      count: _count,
     },
-    fromBlock: 12668769,
+    fromBlock: startBlock,
     toBlock: 'latest',
   });
 
-  console.log('- getEvents pastEvent:', event);
+  // console.log('- getEvents pastEvent:', event);
 
   if (event.length !== 0) {
     const transferedNFT = {

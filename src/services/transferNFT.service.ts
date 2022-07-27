@@ -19,6 +19,12 @@ const createTransferNFT = async data => {
   }
 };
 
+// const result = await db.TransferNFT.bulkCreate(data, {
+//   ignoreDuplicates: true,
+// });
+
+// console.log('* createTransferNFT result:', result);
+
 export default {
   getTransferNFT,
   createTransferNFT,
