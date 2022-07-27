@@ -34,10 +34,9 @@ _request:_
 
 ```js
 {
-    "merchant": "Netflix",
-    "userId": 7,
-    "subscriptionId": 52,
-    "userAddress": "0xa080c64E6a2937B327b50B75B408FBD5C739FFe5"
+    "merchantId": 1,
+    "userId": 1,
+    "userAddress": "0xa080c64e6a2937b327b50b75b408fbd5c739ff2b"
 }
 ```
 
@@ -45,10 +44,9 @@ _response:_
 
 ```js
 {
-    "nftId": 61,
-    "merchant": "Netflix",
-    "subscriptionId": 52,
-    "userId": 7
+    "nftId": 1,
+    "merchantId": 1,
+    "userId": 1
 }
 ```
 
@@ -67,17 +65,14 @@ _response:_
 ```js
 [
   {
-    id: 61,
-    nftId: 61,
-    subscriptionId: 52,
-    userAddress: '0xa080c64E6a2937B327b50B75B408FBD5C739FFe5',
-    userId: 7,
-    merchant: 'Netflix',
+    id: 1,
+    nftId: 1,
+    userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
+    userId: 1,
+    merchantId: 1,
     transactionHash:
-      '0x930725afb59ed7d00db9010a467bde7d7e78163ab5eb2bcab5589f77a050b6b7',
+      '0x10bb110e63e6aaa7377d7bc06bf2b2603824a076e4703dc9197ebb580671447e',
     status: 'success',
-    createdAt: '2022-07-21T11:14:01.558Z',
-    updatedAt: '2022-07-21T11:14:01.558Z',
   },
 ];
 ```
@@ -89,97 +84,91 @@ _response:_
 _endpoint:_
 
 ```
-https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?userAddress=0xa080c64E6a2937B327b50B75B408FBD5C739FF2B
+https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?userAddress=0xa080c64e6a2937b327b50b75b408fbd5c739ff2b
 ```
 
 _request:_
 
-...?userAddress=0xa080c64E6a2937B327b50B75B408FBD5C739FFe5
+...?userAddress=0xa080c64e6a2937b327b50b75b408fbd5c739ff2b
 
 where:
 
-userAddress = '0xa080c64E6a2937B327b50B75B408FBD5C739FFe5'
+userAddress = '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b'
 
 _response:_
 
 ```js
 [
   {
-    nftId: 61,
-    merchant: 'Netflix',
-    subscriptionId: 52,
-    userId: 7,
+    nftId: 1,
+    userId: 1,
     transactionHash:
-      '0x96564f736c08efd9693dd8e55e6d38ed2009acce590b027f68de75c208af81d2',
+      '0x10bb110e63e6aaa7377d7bc06bf2b2603824a076e4703dc9197ebb580671447e',
   },
 ];
 ```
 
 ---
 
-## Get user NFT by userId, subscriptionId and merchant
+## Get user NFT by userId and merchantId
 
 _endpoint:_
 
 ```
-https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?userId=1&subscriptionId=7&merchant=Netflix
+https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?userId=1&merchantId=1
 ```
 
 _request:_
 
-...?userId=1&subscriptionId=7&merchant=Netflix
+...?userId=1&merchantId=1
 
 where:
 
 userId = 1\
-subscriptionId = 7\
-merchant = 'Netflix'
+merchantId = 1
 
 _response:_
 
 ```js
 [
   {
-    userAddress: '0xa080c64E6a2937B327b50B75B408FBD5C739FFe5',
+    userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
   },
 ];
 ```
 
 ---
 
-## Get user NFT by merchant and userAddress
+## Get user NFT by merchantId and userAddress
 
 _endpoint:_
 
 ```
-https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?merchant=Netflix&userAddress=0xa080c64E6a2937B327b50B75B408FBD5C739FFe5
+https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?merchantId=1&userAddress=0xa080c64e6a2937b327b50b75b408fbd5c739ff2b
 ```
 
 _request:_
 
-...?merchant=Netflix&userAddress=0xa080c64E6a2937B327b50B75B408FBD5C739FFe5
+...?merchantId=1&userAddress=0xa080c64e6a2937b327b50b75b408fbd5c739ff2b
 
 where:
 
-merchant = Netflix\
-userAddress = 0xa080c64E6a2937B327b50B75B408FBD5C739FFe5
+merchantId = 1\
+userAddress = 0xa080c64e6a2937b327b50b75b408fbd5c739ff2b
 
 _response:_
 
 ```js
 [
   {
-    id: 61,
-    nftId: 61,
-    subscriptionId: 52,
-    userAddress: '0xa080c64E6a2937B327b50B75B408FBD5C739FFe5',
-    userId: 7,
-    merchant: 'Netflix',
+    id: 1,
+    nftId: 1,
+    userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
+    userId: 1,
+    merchantId: 1,
     transactionHash:
-      '0xd581e265157e5be4caa96b0786f76b256abe28b6b0ed4a38d307944ee634fd54',
+      '0x10bb110e63e6aaa7377d7bc06bf2b2603824a076e4703dc9197ebb580671447e',
     status: 'success',
-    createdAt: '2022-07-27T10:12:02.826Z',
-    updatedAt: '2022-07-27T10:12:02.826Z',
   },
 ];
 ```
@@ -199,13 +188,10 @@ _response:_
 ```js
 [
   {
-    id: 61,
-    nftId: 61,
-    transactionHash:
-      '0x96564f736c08efd9693dd8e55e6d38ed2009acce590b027f68de75c208af81d2',
-    userAddress: '0xa080c64E6a2937B327b50B75B408FBD5C739FFe5',
-    createdAt: '2022-07-20T14:53:24.536Z',
-    updatedAt: '2022-07-20T14:53:24.536Z',
+    id: 1,
+    nftId: 1,
+    userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
+    isActivated: true,
   },
 ];
 ```
@@ -217,7 +203,7 @@ _response:_
 _endpoint:_
 
 ```
-http://localhost:8822/api/logs/
+https://liqiudaccess-backend.herokuapp.com/api/logs/
 ```
 
 _response:_
@@ -225,18 +211,17 @@ _response:_
 ```js
 [
   {
-    id: 61,
-    nftId: 61,
-    subscriptionId: 52,
-    userAddress: '0xa080c64E6a2937B327b50B75B408FBD5C739FFe5',
-    userId: 7,
-    merchant: 'Netflix',
+    id: 1,
+    method: 'safeMint',
+    nftId: 1,
+    userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
+    userId: 1,
+    merchantId: 1,
     message: null,
-    status: 'mint success',
     transactionHash:
-      '0x828022218c546f93d7d73c7901e20ed2d154de8593d68b827718b7eaee5cef22',
-    createdAt: '2022-07-25T09:05:41.135Z',
-    updatedAt: '2022-07-25T09:06:25.985Z',
+      '0x10bb110e63e6aaa7377d7bc06bf2b2603824a076e4703dc9197ebb580671447e',
+    status: 'mint success',
+    isActivated: true,
   },
 ];
 ```

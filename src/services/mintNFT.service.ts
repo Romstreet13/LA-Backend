@@ -9,9 +9,9 @@ const getAllMintNFTs = async () => await db.MintNFT.findAll();
 const getNFT = async data => {
   return await db.MintNFT.findAll({
     where: {
-      merchant: data.merchant,
-      subscriptionId: data.subscriptionId,
-      userAddress: data.userAddress,
+      userId: data.userId,
+      // merchantId: data.merchantId, // *
+      // userAddress: data.userAddress, // *
     },
   });
 };

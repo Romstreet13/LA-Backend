@@ -17,20 +17,15 @@ export default (sequelize: Model) => {
         type: DataType.INTEGER,
         field: 'nftId',
       },
-      subscriptionId: {
-        type: DataType.INTEGER,
-        field: 'subscriptionId',
-        // unique: true,
-      },
       userAddress: { type: DataType.STRING, field: 'userAddress' },
       userId: { type: DataType.INTEGER, field: 'userId' },
-      merchant: { type: DataType.STRING, field: 'merchant' },
+      merchantId: { type: DataType.INTEGER, field: 'merchantId' },
       transactionHash: { type: DataType.STRING, field: 'transactionHash' },
       status: { type: DataType.STRING, field: 'status' },
     },
     {
       tableName: 'mintNFT',
-      timestamps: true,
+      timestamps: false,
     }
   );
 

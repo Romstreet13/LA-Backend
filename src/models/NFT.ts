@@ -17,12 +17,12 @@ export default (sequelize: Model) => {
         type: DataType.INTEGER,
         field: 'nftId',
       },
-      transactionHash: { type: DataType.STRING, field: 'transactionHash' },
       userAddress: { type: DataType.STRING, field: 'userAddress' },
+      isActivated: { type: DataType.BOOLEAN, field: 'isActivated' },
     },
     {
       tableName: 'nft',
-      timestamps: true,
+      timestamps: false,
     }
   );
 
