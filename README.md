@@ -53,29 +53,6 @@ _response:_
 
 ---
 
-## Get all merchants
-
-_endpoint:_
-
-```
-https://liqiudaccess-backend.herokuapp.com/api/merchants/
-```
-
-_response:_
-
-```js
-[
-  {
-    id: 1,
-    merchantId: 1,
-    merchantName: 'Megogo',
-    merchantUrl: 'ipfs://',
-  },
-];
-```
-
----
-
 ## Get all mint NFT
 
 _endpoint:_
@@ -102,7 +79,7 @@ _response:_
 
 ---
 
-## Get mint user NFT by userAddress
+## Get user mint NFT by userAddress
 
 _endpoint:_
 
@@ -121,6 +98,32 @@ _response:_
     userId: 1,
     transactionHash:
       '0x705f65fc582c122c66b1d7b9d05e8abcb249a45f4db0711420078aa535c7df7f',
+    status: 'success',
+  },
+];
+```
+
+---
+
+## GET user mint NFT by userId and userAddress
+
+_endpoint:_
+
+```
+https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user/?userId=1&userAddress=0xa080c64e6a2937b327b50b75b408fbd5c739ff2b
+```
+
+_response:_
+
+```js
+[
+  {
+    id: 1,
+    nftId: 1,
+    userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
+    userId: 1,
+    transactionHash:
+      '0x0386c7ed5b7f8db5e263e30e3ae72cd80d5fada5c1a50000883bed4d845a5d1e',
     status: 'success',
   },
 ];
@@ -170,6 +173,29 @@ _response:_
     merchantId: 1,
     userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
     isActivated: true,
+  },
+];
+```
+
+---
+
+## Get all merchants
+
+_endpoint:_
+
+```
+https://liqiudaccess-backend.herokuapp.com/api/merchants/
+```
+
+_response:_
+
+```js
+[
+  {
+    id: 1,
+    merchantId: 1,
+    merchantName: 'Megogo',
+    merchantUrl: 'ipfs://',
   },
 ];
 ```
