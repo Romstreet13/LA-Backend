@@ -15,7 +15,7 @@ export default (sequelize: Model) => {
       },
       merchantId: { type: DataType.INTEGER, field: 'merchantId' },
       merchantName: { type: DataType.STRING, field: 'merchant' },
-      url: { type: DataType.STRING, field: 'url' },
+      merchantUrl: { type: DataType.STRING, field: 'url' },
     },
     {
       tableName: 'merchant',

@@ -41,7 +41,7 @@ const safeMintHandler = async data => {
 
   const allNFT = await NFTService.getAllNFT();
 
-  _nftId = allNFT.length === 0 ? 1 : allNFT[allNFT.length - 1].nftId + 1;
+  _nftId = allNFT.length === 0 ? 38 : allNFT[allNFT.length - 1].nftId + 1;
 
   // createNFT
   const _createdNFT = await NFTService.createNFT({

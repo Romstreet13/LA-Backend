@@ -52,6 +52,29 @@ _response:_
 
 ---
 
+## Get all merchants
+
+_endpoint:_
+
+```
+https://liqiudaccess-backend.herokuapp.com/api/merchants/
+```
+
+_response:_
+
+```js
+[
+  {
+    id: 1,
+    merchantId: 1,
+    merchantName: 'Megogo',
+    merchantUrl: 'ipfs://',
+  },
+];
+```
+
+---
+
 ## Get all minted NFTs
 
 _endpoint:_
