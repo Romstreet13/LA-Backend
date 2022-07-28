@@ -20,22 +20,7 @@ LA_HEROKU_POSTGRES_HOST = ''
 LA_HEROKU_PORT_DB = 5432
 ```
 
----
-
-## Menu
-
-[Create NFT](https://github.com/techbandorg/LA-Backend#create-nft)\
-[Get all merchants](https://github.com/techbandorg/LA-Backend#get-all-merchants)\
-[Get all minted NFTs](https://github.com/techbandorg/LA-Backend#get-all-minted-nfts)\
-[Get user NFT by userAddress](https://github.com/techbandorg/LA-Backend#get-user-nft-by-useraddress)\
-[Get user NFT by userId and merchantId](https://github.com/techbandorg/LA-Backend#get-user-nft-by-userid-and-merchantid)\
-[Get user NFT by merchantId and userAddress](https://github.com/techbandorg/LA-Backend#get-user-nft-by-merchantid-and-useraddress)\
-[Get all NFT IDs](https://github.com/techbandorg/LA-Backend#get-all-nft-ids)\
-[Get all logs](https://github.com/techbandorg/LA-Backend#get-all-logs)
-
----
-
-## Create NFT
+## Create mint NFT
 
 _endpoint:_
 
@@ -57,9 +42,12 @@ _response:_
 
 ```js
 {
+    "id": 1,
     "nftId": 1,
-    "merchantId": 1,
-    "userId": 1
+    "userId": 1,
+    "userAddress": "0xa080c64e6a2937b327b50b75b408fbd5c739ff2b",
+    "status": "success",
+    "transactionHash": "0x39d8be137ad456d2affdbc533e5ce445ac712121d5f7d7b453634b71e481335f"
 }
 ```
 
@@ -88,7 +76,7 @@ _response:_
 
 ---
 
-## Get all minted NFTs
+## Get all mint NFT
 
 _endpoint:_
 
@@ -105,9 +93,8 @@ _response:_
     nftId: 1,
     userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
     userId: 1,
-    merchantId: 1,
     transactionHash:
-      '0x10bb110e63e6aaa7377d7bc06bf2b2603824a076e4703dc9197ebb580671447e',
+      '0x705f65fc582c122c66b1d7b9d05e8abcb249a45f4db0711420078aa535c7df7f',
     status: 'success',
   },
 ];
@@ -115,82 +102,13 @@ _response:_
 
 ---
 
-## Get user NFT by userAddress
+## Get mint NFT by userAddress
 
 _endpoint:_
 
 ```
-https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?userAddress=0xa080c64e6a2937b327b50b75b408fbd5c739ff2b
+https://liqiudaccess-backend.herokuapp.com/api/mint-nft/?userAddress=0xa080c64e6a2937b327b50b75b408fbd5c739ff2b
 ```
-
-_request:_
-
-...?userAddress=0xa080c64e6a2937b327b50b75b408fbd5c739ff2b
-
-where:
-
-userAddress = '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b'
-
-_response:_
-
-```js
-[
-  {
-    nftId: 1,
-    userId: 1,
-    transactionHash:
-      '0x10bb110e63e6aaa7377d7bc06bf2b2603824a076e4703dc9197ebb580671447e',
-  },
-];
-```
-
----
-
-## Get user NFT by userId and merchantId
-
-_endpoint:_
-
-```
-https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?userId=1&merchantId=1
-```
-
-_request:_
-
-...?userId=1&merchantId=1
-
-where:
-
-userId = 1\
-merchantId = 1
-
-_response:_
-
-```js
-[
-  {
-    userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
-  },
-];
-```
-
----
-
-## Get user NFT by merchantId and userAddress
-
-_endpoint:_
-
-```
-https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?merchantId=1&userAddress=0xa080c64e6a2937b327b50b75b408fbd5c739ff2b
-```
-
-_request:_
-
-...?merchantId=1&userAddress=0xa080c64e6a2937b327b50b75b408fbd5c739ff2b
-
-where:
-
-merchantId = 1\
-userAddress = 0xa080c64e6a2937b327b50b75b408fbd5c739ff2b
 
 _response:_
 
@@ -198,12 +116,11 @@ _response:_
 [
   {
     id: 1,
-    nftId: 1,
+    nftId: 42,
     userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
-    userId: 1,
-    merchantId: 1,
+    userId: 42,
     transactionHash:
-      '0x10bb110e63e6aaa7377d7bc06bf2b2603824a076e4703dc9197ebb580671447e',
+      '0x705f65fc582c122c66b1d7b9d05e8abcb249a45f4db0711420078aa535c7df7f',
     status: 'success',
   },
 ];
@@ -211,7 +128,7 @@ _response:_
 
 ---
 
-## Get all NFT IDs
+## Get all NFT
 
 _endpoint:_
 
@@ -226,6 +143,31 @@ _response:_
   {
     id: 1,
     nftId: 1,
+    merchantId: 1,
+    userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
+    isActivated: true,
+  },
+];
+```
+
+---
+
+## Get NFT by merchantId and userAddress
+
+_endpoint:_
+
+```
+https://liqiudaccess-backend.herokuapp.com/api/nft/?merchantId=1&userAddress=0xa080c64e6a2937b327b50b75b408fbd5c739ff2b
+```
+
+_response:_
+
+```js
+[
+  {
+    id: 1,
+    nftId: 1,
+    merchantId: 1,
     userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
     isActivated: true,
   },
@@ -249,13 +191,13 @@ _response:_
   {
     id: 1,
     method: 'safeMint',
-    nftId: 1,
+    nftId: 38,
     userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
-    userId: 1,
+    userId: 38,
     merchantId: 1,
     message: null,
     transactionHash:
-      '0x10bb110e63e6aaa7377d7bc06bf2b2603824a076e4703dc9197ebb580671447e',
+      '0x4a5c551ce224712d5729d344be4492f5a688c2f6ef9a5acdfc6a2c7d57bc3060',
     status: 'mint success',
     isActivated: true,
   },

@@ -17,6 +17,7 @@ export default (sequelize: Model) => {
         type: DataType.INTEGER,
         field: 'nftId',
       },
+      merchantId: { type: DataType.INTEGER, field: 'merchantId' },
       userAddress: { type: DataType.STRING, field: 'userAddress' },
       isActivated: { type: DataType.BOOLEAN, field: 'isActivated' },
     },

@@ -16,6 +16,15 @@ const getNFT = async data => {
   });
 };
 
+// GET mint NFT by userAddress
+const getMintNFTByUserAddress = async data => {
+  return await db.MintNFT.findAll({
+    where: {
+      userAddress: data.userAddress,
+    },
+  });
+};
+
 // POST
 const createMintNFT = async data => {
   cl.o(' * POST createMintNFT...');
@@ -31,5 +40,6 @@ const createMintNFT = async data => {
 export default {
   getAllMintNFTs,
   getNFT,
+  getMintNFTByUserAddress,
   createMintNFT,
 };
