@@ -7,7 +7,7 @@ import { cl, log, createStartMintError, updateStatus } from '../../logger';
 const safeMintHandler = async data => {
   cl.o(' -- checks NFT in db:');
 
-  const _NFT = await mintNFTService.getNFT(data);
+  const _NFT = await mintNFTService.getUserMintNFT(data);
 
   let _nftId = 0;
 
@@ -17,7 +17,6 @@ const safeMintHandler = async data => {
       createStartMintError({
         method: 'safeMint',
         status: 'start mint error',
-        // merchantId: data.merchantId,
         userId: data.userId,
         userAddress: data.userAddress,
         message: `NFT with this subscriptionId already exists`,
@@ -41,7 +40,7 @@ const safeMintHandler = async data => {
 
   const allNFT = await NFTService.getAllNFT();
 
-  _nftId = allNFT.length === 0 ? 49 : allNFT[allNFT.length - 1].nftId + 1;
+  _nftId = allNFT.length === 0 ? 59 : allNFT[allNFT.length - 1].nftId + 1;
 
   // createNFT
   const _createdNFT = await NFTService.createNFT({
@@ -56,7 +55,6 @@ const safeMintHandler = async data => {
   // createMintNFT
   const _response = await mintNFTService.createMintNFT({
     nftId: _nftId,
-    // merchantId: data?.merchantId,
     userId: data.userId,
     userAddress: data.userAddress,
     status: 'success',
@@ -64,15 +62,6 @@ const safeMintHandler = async data => {
   });
 
   _response && cl.mb(' -- createMintNFT success');
-
-  // const respons =
-  //   typeof _response === 'string'
-  //     ? _response
-  //     : {
-  //         nftId: _response?.nftId,
-  //         merchantId: _response.merchantId,
-  //         userId: _response.userId,
-  //       };
 
   log.info(
     'mint success',
@@ -87,7 +76,6 @@ const safeMintHandler = async data => {
   );
 
   return _response;
-  // return respons;
 };
 
 export default safeMintHandler;

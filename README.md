@@ -102,12 +102,12 @@ _response:_
 
 ---
 
-## Get mint NFT by userAddress
+## Get mint user NFT by userAddress
 
 _endpoint:_
 
 ```
-https://liqiudaccess-backend.herokuapp.com/api/mint-nft/?userAddress=0xa080c64e6a2937b327b50b75b408fbd5c739ff2b
+https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user/?userAddress=0xa080c64e6a2937b327b50b75b408fbd5c739ff2b
 ```
 
 _response:_
@@ -116,9 +116,9 @@ _response:_
 [
   {
     id: 1,
-    nftId: 42,
+    nftId: 1,
     userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
-    userId: 42,
+    userId: 1,
     transactionHash:
       '0x705f65fc582c122c66b1d7b9d05e8abcb249a45f4db0711420078aa535c7df7f',
     status: 'success',
@@ -152,12 +152,12 @@ _response:_
 
 ---
 
-## Get NFT by merchantId and userAddress
+## Get user NFT by merchantId and userAddress
 
 _endpoint:_
 
 ```
-https://liqiudaccess-backend.herokuapp.com/api/nft/?merchantId=1&userAddress=0xa080c64e6a2937b327b50b75b408fbd5c739ff2b
+https://liqiudaccess-backend.herokuapp.com/api/nft/user/?merchantId=1&userAddress=0xa080c64e6a2937b327b50b75b408fbd5c739ff2b
 ```
 
 _response:_
@@ -191,9 +191,9 @@ _response:_
   {
     id: 1,
     method: 'safeMint',
-    nftId: 38,
+    nftId: 1,
     userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
-    userId: 38,
+    userId: 1,
     merchantId: 1,
     message: null,
     transactionHash:
