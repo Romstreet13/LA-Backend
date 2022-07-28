@@ -45,7 +45,7 @@ const updateTxHashAndStatus = async data => {
 
 // UPDATE error message and status
 const updateErrorMessageAndStatus = async data => {
-  cl.mt(' * UPDATE updateErrorMessageAndStatus log...', data);
+  cl.mt(' * UPDATE updateErrorMessageAndStatus log...');
 
   const { status, userId, userAddress, message } = data;
   // console.log('updateErrorMessageAndStatus:', status, userAddress, subscriptionId, message); // *

@@ -19,7 +19,7 @@ export default (sequelize: Model) => {
       },
       userAddress: { type: DataType.STRING, field: 'userAddress' },
       userId: { type: DataType.INTEGER, field: 'userId' },
-      merchantId: { type: DataType.INTEGER, field: 'merchantId' },
+      // merchantId: { type: DataType.INTEGER, field: 'merchantId' },
       transactionHash: { type: DataType.STRING, field: 'transactionHash' },
       status: { type: DataType.STRING, field: 'status' },
     },

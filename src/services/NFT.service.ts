@@ -5,6 +5,17 @@ import { cl } from '../logger';
 // GET all IDs
 const getAllNFT = async () => await db.NFT.findAll();
 
+const getUserNFT = async data => {
+  cl.mt(' * GET getUserNFT');
+
+  return await db.NFT.findAll({
+    where: {
+      merchantId: Number(data.merchantId),
+      userAddress: data.userAddress,
+    },
+  });
+};
+
 // GET ID by transactionHash
 // const getNFT = async data => {
 //   console.log(' * GET NFT (check in db)');
@@ -30,6 +41,6 @@ const createNFT = async data => {
 
 export default {
   getAllNFT,
-  // getNFT,
+  getUserNFT,
   createNFT,
 };
