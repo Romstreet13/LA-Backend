@@ -25,13 +25,13 @@ LA_HEROKU_PORT_DB = 5432
 ## Menu
 
 [Create mint NFT](https://github.com/techbandorg/LA-Backend/#create-mint-nft)\
-[Get all mint NFT](https://github.com/techbandorg/LA-Backend/#get-all-mint-nft)\
-[Get user mint NFT by userAddress](https://github.com/techbandorg/LA-Backend/#get-user-mint-nft-by-useraddress)\
+[GET all mint NFT](https://github.com/techbandorg/LA-Backend/#get-all-mint-nft)\
+[GET user mint NFT by userAddress](https://github.com/techbandorg/LA-Backend/#get-user-mint-nft-by-useraddress)\
 [GET user mint NFT by userId and userAddress](https://github.com/techbandorg/LA-Backend/#get-user-mint-nft-by-userid-and-useraddress)\
-[Get all NFT](https://github.com/techbandorg/LA-Backend/#get-all-nft)\
-[Get user NFT by merchantId and userAddress](https://github.com/techbandorg/LA-Backend/#get-user-nft-by-merchantid-and-useraddress)\
-[Get all merchants](https://github.com/techbandorg/LA-Backend/#get-all-merchants)\
-[Get all logs](https://github.com/techbandorg/LA-Backend/#get-all-logs)
+[GET all NFT](https://github.com/techbandorg/LA-Backend/#get-all-nft)\
+[GET user NFT by merchantId and userAddress](https://github.com/techbandorg/LA-Backend/#get-user-nft-by-merchantid-and-useraddress)\
+[GET all merchants](https://github.com/techbandorg/LA-Backend/#get-all-merchants)\
+[GET all logs](https://github.com/techbandorg/LA-Backend/#get-all-logs)
 
 ---
 
@@ -68,7 +68,7 @@ _response:_
 
 ---
 
-## Get all mint NFT
+## GET all mint NFT
 
 _endpoint:_
 
@@ -94,7 +94,7 @@ _response:_
 
 ---
 
-## Get user mint NFT by userAddress
+## GET user mint NFT by userAddress
 
 _endpoint:_
 
@@ -146,7 +146,7 @@ _response:_
 
 ---
 
-## Get all NFT
+## GET all NFT
 
 _endpoint:_
 
@@ -170,7 +170,7 @@ _response:_
 
 ---
 
-## Get user NFT by merchantId and userAddress
+## GET user NFT by merchantId and userAddress
 
 _endpoint:_
 
@@ -194,7 +194,7 @@ _response:_
 
 ---
 
-## Get all merchants
+## GET all merchants
 
 _endpoint:_
 
@@ -217,7 +217,7 @@ _response:_
 
 ---
 
-## Get all logs
+## GET all logs
 
 _endpoint:_
 
