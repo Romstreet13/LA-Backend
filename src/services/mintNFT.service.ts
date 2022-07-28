@@ -6,7 +6,7 @@ import { cl } from '../logger';
 const getAllMintNFTs = async () => await db.MintNFT.findAll();
 
 // GET user mint NFT by userId and userAddress
-const getUserMintNFT = async data => {
+const getUserMintNFTByUserIdAndUserAddress = async data => {
   return await db.MintNFT.findAll({
     where: {
       userId: data.userId,
@@ -38,7 +38,7 @@ const createMintNFT = async data => {
 
 export default {
   getAllMintNFTs,
-  getUserMintNFT,
+  getUserMintNFTByUserIdAndUserAddress,
   getMintNFTByUserAddress,
   createMintNFT,
 };
