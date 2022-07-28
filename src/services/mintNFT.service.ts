@@ -5,12 +5,20 @@ import { cl } from '../logger';
 // GET
 const getAllMintNFTs = async () => await db.MintNFT.findAll();
 
-// GET specific NFT by three values
-const getNFT = async data => {
+// GET user mint NFT by userId and userAddress
+const getUserMintNFTByUserIdAndUserAddress = async data => {
   return await db.MintNFT.findAll({
     where: {
-      merchant: data.merchant,
-      subscriptionId: data.subscriptionId,
+      userId: data.userId,
+      userAddress: data.userAddress,
+    },
+  });
+};
+
+// GET user mint NFT by userAddress
+const getMintNFTByUserAddress = async data => {
+  return await db.MintNFT.findAll({
+    where: {
       userAddress: data.userAddress,
     },
   });
@@ -30,6 +38,7 @@ const createMintNFT = async data => {
 
 export default {
   getAllMintNFTs,
-  getNFT,
+  getUserMintNFTByUserIdAndUserAddress,
+  getMintNFTByUserAddress,
   createMintNFT,
 };

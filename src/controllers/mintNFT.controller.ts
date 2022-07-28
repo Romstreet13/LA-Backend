@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { Request, Response } from 'express';
-import getUserNFTHandler from './handlers/getUserNFTHandler';
+import getUserMintNFTHandler from './handlers/getUserMintNFTHandler';
 import mintNFTService from '../services/mintNFT.service';
 import safeMintHandler from '../methods/handlers/safeMintHandler';
 import { cl } from '../logger';
@@ -12,14 +12,14 @@ const getAllMintNFTs = async (req: Request, res: Response) => {
 };
 
 // GET specific
-const getUserNFT = async (req: Request, res: Response) => {
-  const userNFT = await getUserNFTHandler(req.query);
+const getUserMintNFT = async (req: Request, res: Response) => {
+  const userNFT = await getUserMintNFTHandler(req.query);
   res.status(200).send(userNFT);
 };
 
 // POST
 const createMintNFT = async (req: Request, res: Response) => {
-  cl.w(`=======> start mint NFT (subId: ${req.body.subscriptionId})`);
+  cl.w(`=======> start mint NFT (userId: ${req.body.userId})`);
   const response = await safeMintHandler(req.body);
   cl.w(`<======= sent response to front:`, response);
   res.status(typeof response === 'string' ? 400 : 200).send(response);
@@ -27,6 +27,6 @@ const createMintNFT = async (req: Request, res: Response) => {
 
 export default {
   getAllMintNFTs,
-  getUserNFT,
+  getUserMintNFT,
   createMintNFT,
 };

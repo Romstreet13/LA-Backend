@@ -22,7 +22,20 @@ LA_HEROKU_PORT_DB = 5432
 
 ---
 
-## Create NFT
+## Menu
+
+[Create mint NFT](https://github.com/techbandorg/LA-Backend/#create-mint-nft)\
+[GET all mint NFT](https://github.com/techbandorg/LA-Backend/#get-all-mint-nft)\
+[GET user mint NFT by userAddress](https://github.com/techbandorg/LA-Backend/#get-user-mint-nft-by-useraddress)\
+[GET user mint NFT by userId and userAddress](https://github.com/techbandorg/LA-Backend/#get-user-mint-nft-by-userid-and-useraddress)\
+[GET all NFT](https://github.com/techbandorg/LA-Backend/#get-all-nft)\
+[GET user NFT by merchantId and userAddress](https://github.com/techbandorg/LA-Backend/#get-user-nft-by-merchantid-and-useraddress)\
+[GET all merchants](https://github.com/techbandorg/LA-Backend/#get-all-merchants)\
+[GET all logs](https://github.com/techbandorg/LA-Backend/#get-all-logs)
+
+---
+
+## Create mint NFT
 
 _endpoint:_
 
@@ -34,10 +47,9 @@ _request:_
 
 ```js
 {
-    "merchant": "Netflix",
-    "userId": 7,
-    "subscriptionId": 52,
-    "userAddress": "0xa080c64E6a2937B327b50B75B408FBD5C739FFe5"
+    "merchantId": 1,
+    "userId": 1,
+    "userAddress": "0xa080c64e6a2937b327b50b75b408fbd5c739ff2b"
 }
 ```
 
@@ -45,16 +57,18 @@ _response:_
 
 ```js
 {
-    "nftId": 61,
-    "merchant": "Netflix",
-    "subscriptionId": 52,
-    "userId": 7
+    "id": 1,
+    "nftId": 1,
+    "userId": 1,
+    "userAddress": "0xa080c64e6a2937b327b50b75b408fbd5c739ff2b",
+    "status": "success",
+    "transactionHash": "0x39d8be137ad456d2affdbc533e5ce445ac712121d5f7d7b453634b71e481335f"
 }
 ```
 
 ---
 
-## Get all minted NFTs
+## GET all mint NFT
 
 _endpoint:_
 
@@ -67,126 +81,72 @@ _response:_
 ```js
 [
   {
-    id: 61,
-    nftId: 61,
-    subscriptionId: 52,
-    userAddress: '0xa080c64E6a2937B327b50B75B408FBD5C739FFe5',
-    userId: 7,
-    merchant: 'Netflix',
+    id: 1,
+    nftId: 1,
+    userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
+    userId: 1,
     transactionHash:
-      '0x930725afb59ed7d00db9010a467bde7d7e78163ab5eb2bcab5589f77a050b6b7',
+      '0x705f65fc582c122c66b1d7b9d05e8abcb249a45f4db0711420078aa535c7df7f',
     status: 'success',
-    createdAt: '2022-07-21T11:14:01.558Z',
-    updatedAt: '2022-07-21T11:14:01.558Z',
   },
 ];
 ```
 
 ---
 
-## Get user NFT by userAddress
+## GET user mint NFT by userAddress
 
 _endpoint:_
 
 ```
-https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?userAddress=0xa080c64E6a2937B327b50B75B408FBD5C739FF2B
+https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user/?userAddress=0xa080c64e6a2937b327b50b75b408fbd5c739ff2b
 ```
-
-_request:_
-
-...?userAddress=0xa080c64E6a2937B327b50B75B408FBD5C739FFe5
-
-where:
-
-userAddress = '0xa080c64E6a2937B327b50B75B408FBD5C739FFe5'
 
 _response:_
 
 ```js
 [
   {
-    nftId: 61,
-    merchant: 'Netflix',
-    subscriptionId: 52,
-    userId: 7,
+    id: 1,
+    nftId: 1,
+    userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
+    userId: 1,
     transactionHash:
-      '0x96564f736c08efd9693dd8e55e6d38ed2009acce590b027f68de75c208af81d2',
-  },
-];
-```
-
----
-
-## Get user NFT by userId, subscriptionId and merchant
-
-_endpoint:_
-
-```
-https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?userId=1&subscriptionId=7&merchant=Netflix
-```
-
-_request:_
-
-...?userId=1&subscriptionId=7&merchant=Netflix
-
-where:
-
-userId = 1\
-subscriptionId = 7\
-merchant = 'Netflix'
-
-_response:_
-
-```js
-[
-  {
-    userAddress: '0xa080c64E6a2937B327b50B75B408FBD5C739FFe5',
-  },
-];
-```
-
----
-
-## Get user NFT by merchant and userAddress
-
-_endpoint:_
-
-```
-https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user-nft/?merchant=Netflix&userAddress=0xa080c64E6a2937B327b50B75B408FBD5C739FFe5
-```
-
-_request:_
-
-...?merchant=Netflix&userAddress=0xa080c64E6a2937B327b50B75B408FBD5C739FFe5
-
-where:
-
-merchant = Netflix\
-userAddress = 0xa080c64E6a2937B327b50B75B408FBD5C739FFe5
-
-_response:_
-
-```js
-[
-  {
-    id: 61,
-    nftId: 61,
-    subscriptionId: 52,
-    userAddress: '0xa080c64E6a2937B327b50B75B408FBD5C739FFe5',
-    userId: 7,
-    merchant: 'Netflix',
-    transactionHash:
-      '0xd581e265157e5be4caa96b0786f76b256abe28b6b0ed4a38d307944ee634fd54',
+      '0x705f65fc582c122c66b1d7b9d05e8abcb249a45f4db0711420078aa535c7df7f',
     status: 'success',
-    createdAt: '2022-07-27T10:12:02.826Z',
-    updatedAt: '2022-07-27T10:12:02.826Z',
   },
 ];
 ```
 
 ---
 
-## Get all NFT IDs
+## GET user mint NFT by userId and userAddress
+
+_endpoint:_
+
+```
+https://liqiudaccess-backend.herokuapp.com/api/mint-nft/user/?userId=1&userAddress=0xa080c64e6a2937b327b50b75b408fbd5c739ff2b
+```
+
+_response:_
+
+```js
+[
+  {
+    id: 1,
+    nftId: 1,
+    userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
+    userId: 1,
+    transactionHash:
+      '0x0386c7ed5b7f8db5e263e30e3ae72cd80d5fada5c1a50000883bed4d845a5d1e',
+    status: 'success',
+  },
+];
+```
+
+---
+
+## GET all NFT
 
 _endpoint:_
 
@@ -199,25 +159,23 @@ _response:_
 ```js
 [
   {
-    id: 61,
-    nftId: 61,
-    transactionHash:
-      '0x96564f736c08efd9693dd8e55e6d38ed2009acce590b027f68de75c208af81d2',
-    userAddress: '0xa080c64E6a2937B327b50B75B408FBD5C739FFe5',
-    createdAt: '2022-07-20T14:53:24.536Z',
-    updatedAt: '2022-07-20T14:53:24.536Z',
+    id: 1,
+    nftId: 1,
+    merchantId: 1,
+    userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
+    isActivated: true,
   },
 ];
 ```
 
 ---
 
-## Get all logs
+## GET user NFT by merchantId and userAddress
 
 _endpoint:_
 
 ```
-http://localhost:8822/api/logs/
+https://liqiudaccess-backend.herokuapp.com/api/nft/user/?merchantId=1&userAddress=0xa080c64e6a2937b327b50b75b408fbd5c739ff2b
 ```
 
 _response:_
@@ -225,18 +183,64 @@ _response:_
 ```js
 [
   {
-    id: 61,
-    nftId: 61,
-    subscriptionId: 52,
-    userAddress: '0xa080c64E6a2937B327b50B75B408FBD5C739FFe5',
-    userId: 7,
-    merchant: 'Netflix',
+    id: 1,
+    nftId: 1,
+    merchantId: 1,
+    userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
+    isActivated: true,
+  },
+];
+```
+
+---
+
+## GET all merchants
+
+_endpoint:_
+
+```
+https://liqiudaccess-backend.herokuapp.com/api/merchants/
+```
+
+_response:_
+
+```js
+[
+  {
+    id: 1,
+    merchantId: 1,
+    merchantName: 'Megogo',
+    merchantUrl: 'ipfs://',
+  },
+];
+```
+
+---
+
+## GET all logs
+
+_endpoint:_
+
+```
+https://liqiudaccess-backend.herokuapp.com/api/logs/
+```
+
+_response:_
+
+```js
+[
+  {
+    id: 1,
+    method: 'safeMint',
+    nftId: 1,
+    userAddress: '0xa080c64e6a2937b327b50b75b408fbd5c739ff2b',
+    userId: 1,
+    merchantId: 1,
     message: null,
-    status: 'mint success',
     transactionHash:
-      '0x828022218c546f93d7d73c7901e20ed2d154de8593d68b827718b7eaee5cef22',
-    createdAt: '2022-07-25T09:05:41.135Z',
-    updatedAt: '2022-07-25T09:06:25.985Z',
+      '0x4a5c551ce224712d5729d344be4492f5a688c2f6ef9a5acdfc6a2c7d57bc3060',
+    status: 'mint success',
+    isActivated: true,
   },
 ];
 ```

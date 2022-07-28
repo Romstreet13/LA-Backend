@@ -35,11 +35,11 @@ const createStartMintError = async data => {
 const updateTxHashAndStatus = async data => {
   cl.mt(' * UPDATE updateTxHashAndStatus log...');
 
-  const { status, userAddress, subscriptionId, txHash } = data;
+  const { status, userId, userAddress, txHash } = data;
   // console.log('updateTxHashAndStatus:', status, userAddress, subscriptionId, txHash); // *
   await db.Logs.update(
     { status: status, transactionHash: txHash },
-    { where: { userAddress: userAddress, subscriptionId: subscriptionId } }
+    { where: { userAddress: userAddress, userId: userId } }
   );
 };
 
@@ -47,16 +47,11 @@ const updateTxHashAndStatus = async data => {
 const updateErrorMessageAndStatus = async data => {
   cl.mt(' * UPDATE updateErrorMessageAndStatus log...');
 
-  const { status, userAddress, subscriptionId, message } = data;
+  const { status, userId, userAddress, message } = data;
   // console.log('updateErrorMessageAndStatus:', status, userAddress, subscriptionId, message); // *
   await db.Logs.update(
     { status: status, message: message },
-    {
-      where: {
-        userAddress: userAddress,
-        subscriptionId: subscriptionId,
-      },
-    }
+    { where: { userId: userId, userAddress: userAddress } }
   );
 };
 
@@ -64,16 +59,11 @@ const updateErrorMessageAndStatus = async data => {
 const updateStatus = async data => {
   cl.mt(' * UPDATE updateStatus log...');
 
-  const { status, userAddress, subscriptionId, nftId } = data;
+  const { status, userId, userAddress, nftId } = data;
   // console.log('updateStatus:', status, userAddress, subscriptionId, nftId); // *
   await db.Logs.update(
-    { status: status, nftId: nftId },
-    {
-      where: {
-        userAddress: userAddress,
-        subscriptionId: subscriptionId,
-      },
-    }
+    { status: status, nftId: nftId, isActivated: true },
+    { where: { userId: userId, userAddress: userAddress } }
   );
 };
 

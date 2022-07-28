@@ -9,10 +9,10 @@ const getEvents = async (startBlock, lastCount) => {
   // console.log(
   //   '- getEvents - startBlock and lastCount:',
   //   startBlock,
-  //   Number(_lastCount)
+  //   Number(lastCount)
   // );
 
-  console.log('- getEvents _count:', _count);
+  // console.log('- getEvents _count:', _count);
 
   const event = await contract.getPastEvents('TransferFrom', {
     filter: {
@@ -30,9 +30,8 @@ const getEvents = async (startBlock, lastCount) => {
       from: event[0].returnValues.from,
       to: event[0].returnValues.to,
       blockNumber: event[0].blockNumber,
-      tokenId: event[0].returnValues.tokenId,
+      nftId: event[0].returnValues.tokenId,
       transactionHash: event[0].transactionHash,
-      activated: false,
     };
 
     const res = await transferNFTService.createTransferNFT(transferedNFT);

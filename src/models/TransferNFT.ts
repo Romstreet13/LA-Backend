@@ -16,14 +16,13 @@ export default (sequelize: Model) => {
       count: { type: DataType.STRING, field: 'count' },
       from: { type: DataType.STRING, field: 'from' },
       to: { type: DataType.STRING, field: 'to' },
-      tokenId: {
-        type: DataType.INTEGER,
-        field: 'tokenId',
-        // unique: true
-      },
+      nftId: { type: DataType.INTEGER, field: 'nftId' },
       blockNumber: { type: DataType.INTEGER, field: 'blockNumber' },
-      transactionHash: { type: DataType.STRING, field: 'transactionHash' },
-      activated: { type: DataType.STRING, field: 'activated' },
+      transactionHash: {
+        type: DataType.STRING,
+        field: 'transactionHash',
+        unique: true,
+      },
     },
     {
       tableName: 'transferNFT',
