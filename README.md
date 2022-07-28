@@ -22,6 +22,19 @@ LA_HEROKU_PORT_DB = 5432
 
 ---
 
+## Menu
+
+[Create NFT](https://github.com/techbandorg/LA-Backend#create-nft)\
+[Get all merchants](https://github.com/techbandorg/LA-Backend#get-all-merchants)\
+[Get all minted NFTs](https://github.com/techbandorg/LA-Backend#get-all-minted-nfts)\
+[Get user NFT by userAddress](https://github.com/techbandorg/LA-Backend#get-user-nft-by-useraddress)\
+[Get user NFT by userId and merchantId](https://github.com/techbandorg/LA-Backend#get-user-nft-by-userid-and-merchantid)\
+[Get user NFT by merchantId and userAddress](https://github.com/techbandorg/LA-Backend#get-user-nft-by-merchantid-and-useraddress)\
+[Get all NFT IDs](https://github.com/techbandorg/LA-Backend#get-all-nft-ids)\
+[Get all logs](https://github.com/techbandorg/LA-Backend#get-all-logs)
+
+---
+
 ## Create NFT
 
 _endpoint:_
