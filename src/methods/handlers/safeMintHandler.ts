@@ -7,7 +7,7 @@ import { cl, log, createStartMintError, updateStatus } from '../../logger';
 const safeMintHandler = async data => {
   cl.o(' -- checks NFT in db:');
 
-  const _NFT = await mintNFTService.getUserMintNFT(data);
+  const _NFT = await mintNFTService.getUserMintNFTByUserIdAndUserAddress(data);
 
   let _nftId = 0;
 
