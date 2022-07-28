@@ -20,6 +20,21 @@ LA_HEROKU_POSTGRES_HOST = ''
 LA_HEROKU_PORT_DB = 5432
 ```
 
+---
+
+## Menu
+
+[Create mint NFT](https://github.com/techbandorg/LA-Backend/#create-mint-nft)\
+[Get all mint NFT](https://github.com/techbandorg/LA-Backend/#get-all-mint-nft)\
+[Get user mint NFT by userAddress](https://github.com/techbandorg/LA-Backend/#get-user-mint-nft-by-useraddress)\
+[GET user mint NFT by userId and userAddress](https://github.com/techbandorg/LA-Backend/#get-user-mint-nft-by-userid-and-useraddress)\
+[Get all NFT](https://github.com/techbandorg/LA-Backend/#get-all-nft)\
+[Get user NFT by merchantId and userAddress](https://github.com/techbandorg/LA-Backend/#get-user-nft-by-merchantid-and-useraddress)\
+[Get all merchants](https://github.com/techbandorg/LA-Backend/#get-all-merchants)\
+[Get all logs](https://github.com/techbandorg/LA-Backend/#get-all-logs)
+
+---
+
 ## Create mint NFT
 
 _endpoint:_
