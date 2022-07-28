@@ -13,27 +13,19 @@ export default (sequelize: Model) => {
         allowNull: false,
         field: 'id',
       },
-      nftId: {
-        type: DataType.INTEGER,
-        field: 'nftId',
-      },
-      subscriptionId: {
-        type: DataType.INTEGER,
-        field: 'subscriptionId',
-      },
+      method: { type: DataType.STRING, field: 'method' },
+      nftId: { type: DataType.INTEGER, field: 'nftId' },
       userAddress: { type: DataType.STRING, field: 'userAddress' },
       userId: { type: DataType.INTEGER, field: 'userId' },
-      merchant: { type: DataType.STRING, field: 'merchant' },
-      message: {
-        type: DataType.STRING,
-        field: 'message',
-      },
-      status: { type: DataType.STRING, field: 'status' },
+      merchantId: { type: DataType.INTEGER, field: 'merchantId' },
+      message: { type: DataType.STRING, field: 'message' },
       transactionHash: { type: DataType.STRING, field: 'transactionHash' },
+      status: { type: DataType.STRING, field: 'status' },
+      isActivated: { type: DataType.BOOLEAN, field: 'isActivated' },
     },
     {
       tableName: 'logs',
-      timestamps: true,
+      timestamps: false,
     }
   );
 

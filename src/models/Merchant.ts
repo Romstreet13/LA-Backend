@@ -2,8 +2,8 @@ import DataType from 'sequelize';
 import { Model } from './types/model.model';
 
 export default (sequelize: Model) => {
-  const TransferNFT = sequelize.define(
-    'TransferNFT',
+  const Merchant = sequelize.define(
+    'Merchant',
     {
       id: {
         type: DataType.INTEGER,
@@ -13,16 +13,15 @@ export default (sequelize: Model) => {
         allowNull: false,
         field: 'id',
       },
-      from: { type: DataType.STRING, field: 'from' },
-      to: { type: DataType.STRING, field: 'to' },
-      nftId: { type: DataType.INTEGER, field: 'tokenId', unique: true },
-      transactionHash: { type: DataType.STRING, field: 'transactionHash' },
+      merchantId: { type: DataType.INTEGER, field: 'merchantId' },
+      merchantName: { type: DataType.STRING, field: 'merchant' },
+      merchantUrl: { type: DataType.STRING, field: 'url' },
     },
     {
-      tableName: 'transferNFT',
+      tableName: 'merchant',
       timestamps: false,
     }
   );
 
-  return TransferNFT;
+  return Merchant;
 };

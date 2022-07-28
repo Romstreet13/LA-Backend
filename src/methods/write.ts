@@ -13,7 +13,7 @@ import {
 export const safeMint = async data => {
   cl.mt(' --- write safeMint');
 
-  const { merchant, userAddress, userId, subscriptionId } = data;
+  const { merchantId, userAddress, userId } = data;
   const { ROPSTEN, contract, accounts } = la_ropsten;
   let txHash = '';
 
@@ -21,11 +21,12 @@ export const safeMint = async data => {
     log.info(
       'start mint',
       createStartMint({
+        method: 'safeMint',
         status: 'start mint',
-        merchant: merchant,
+        merchantId: merchantId,
         userId,
         userAddress,
-        subscriptionId,
+        isActivated: false,
       })
     );
 
@@ -34,7 +35,7 @@ export const safeMint = async data => {
 
     // Request to blockchain
     const result = await contract.methods
-      .safeMint(userAddress, subscriptionId)
+      .safeMint(userAddress, 88)
       .send({
         from: accounts.address,
         gas: 26600000,
@@ -49,8 +50,8 @@ export const safeMint = async data => {
           'request to blockchain',
           updateTxHashAndStatus({
             status: 'request to blockchain',
+            userId: userId,
             userAddress,
-            subscriptionId,
             txHash,
           })
         );
@@ -81,9 +82,9 @@ export const safeMint = async data => {
       'blockchain error',
       updateErrorMessageAndStatus({
         status: 'blockchain error',
+        userId,
         userAddress,
-        subscriptionId,
-        message: message.length < 50 ? message : `${message.slice(0, 50)}...`,
+        message: message.length < 60 ? message : `${message.slice(0, 60)}...`,
       })
     );
 

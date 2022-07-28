@@ -6,20 +6,22 @@ import { cl, log, createStartMintError, updateStatus } from '../../logger';
 
 const safeMintHandler = async data => {
   cl.o(' -- checks NFT in db:');
+
   const _NFT = await mintNFTService.getNFT(data);
 
   let _nftId = 0;
 
-  if (_NFT.length > 0 && _NFT[0].subscriptionId === data.subscriptionId) {
+  if (_NFT.length > 0) {
     log.error(
       'start mint error',
       createStartMintError({
+        method: 'safeMint',
         status: 'start mint error',
-        merchant: data.merchant,
+        merchantId: data.merchantId,
         userId: data.userId,
         userAddress: data.userAddress,
-        subscriptionId: data.subscriptionId,
         message: `NFT with this subscriptionId already exists`,
+        isActivated: false,
       })
     );
     return 'NFT with this subscriptionId already exists';
@@ -39,13 +41,13 @@ const safeMintHandler = async data => {
 
   const allNFT = await NFTService.getAllNFT();
 
-  _nftId = allNFT.length === 0 ? 255 : allNFT[allNFT.length - 1].nftId + 1;
+  _nftId = allNFT.length === 0 ? 38 : allNFT[allNFT.length - 1].nftId + 1;
 
   // createNFT
   const _createdNFT = await NFTService.createNFT({
     nftId: _nftId,
-    transactionHash: result?.txHash,
     userAddress: data.userAddress,
+    isActivated: true,
   });
 
   _createdNFT && cl.mb(' -- createNFT success');
@@ -53,8 +55,7 @@ const safeMintHandler = async data => {
   // createMintNFT
   const _response = await mintNFTService.createMintNFT({
     nftId: _nftId,
-    merchant: data?.merchant,
-    subscriptionId: data.subscriptionId,
+    merchantId: data?.merchantId,
     userId: data.userId,
     userAddress: data.userAddress,
     status: 'success',
@@ -68,8 +69,7 @@ const safeMintHandler = async data => {
       ? _response
       : {
           nftId: _response?.nftId,
-          merchant: _response.merchant,
-          subscriptionId: _response.subscriptionId,
+          merchantId: _response.merchantId,
           userId: _response.userId,
         };
 
@@ -77,10 +77,11 @@ const safeMintHandler = async data => {
     'mint success',
     updateStatus({
       status: 'mint success',
-      userAddress: data.userAddress,
-      subscriptionId: data.subscriptionId,
-      txHash: result?.txHash,
       nftId: _response?.nftId,
+      userId: data.userId,
+      userAddress: data.userAddress,
+      txHash: result?.txHash,
+      isActivated: true,
     })
   );
 
