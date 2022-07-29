@@ -6,13 +6,17 @@ import { la_ropsten } from '../../contracts/config';
 const getExistingEvents = async label => {
   const { contract } = la_ropsten;
 
-  const _startBlock = await getStartBlock();
-  const startBlock = _startBlock[0].blockNumber;
+  const _NFTs = await transferNFTService.getAllTransferNFT();
+
+  const _startBlock = await getStartBlock(_NFTs);
+  // const startBlock = _startBlock[0].blockNumber;
 
   const _events = await contract.getPastEvents('TransferFrom', {
-    fromBlock: startBlock,
+    fromBlock: _startBlock,
     toBlock: 'latest',
   });
+
+  console.log(' - eventHandler!');
 
   const events = [];
 

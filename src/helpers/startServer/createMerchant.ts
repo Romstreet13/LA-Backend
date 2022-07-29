@@ -18,10 +18,10 @@ const createMerchant = async la => {
       merchantName,
       merchantUrl,
     });
-    console.log(`created a merchant with an ID:`, merchant.merchantId);
+    console.log(` - created a merchant with an ID:`, merchant.merchantId);
     return merchant;
   } else {
-    console.log(`merchant ID:`, _merchant[0].merchantId);
+    console.log(` - got merchant ID from db:`, _merchant[0].merchantId);
     return _merchant;
   }
 };

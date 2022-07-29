@@ -36,8 +36,6 @@ const getEvents = async (startBlock, lastCount) => {
 
     const res = await transferNFTService.createTransferNFT(transferedNFT);
 
-    console.log('res:', res);
-
     return res;
   } else return 'no new trasfersFrom events!';
 };
