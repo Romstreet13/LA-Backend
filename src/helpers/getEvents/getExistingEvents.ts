@@ -9,7 +9,6 @@ const getExistingEvents = async label => {
   const _NFTs = await transferNFTService.getAllTransferNFT();
 
   const _startBlock = await getStartBlock(_NFTs);
-  // const startBlock = _startBlock[0].blockNumber;
 
   const _events = await contract.getPastEvents('TransferFrom', {
     fromBlock: _startBlock,

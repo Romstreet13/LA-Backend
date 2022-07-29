@@ -12,7 +12,6 @@ const checkEvents = async label => {
 
   const startBlock = await getStartBlock(_NFTs);
   cl.o(' - transfers in DB:', _NFTs.length);
-  // console.log('startBlock', startBlock);
 
   const newEvent =
     (await startBlock.length) !== 0

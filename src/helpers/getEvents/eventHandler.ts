@@ -1,9 +1,9 @@
 // @ts-nocheck
-import getExistingEvents from './getExistingEvents'; // *
+// import getExistingEvents from './getExistingEvents'; // *
 import { runCheckEvents } from '../../services/cron';
 
 const eventHandler = async LABELS => {
-  /* Get existing events
+  /* Get existing events (fast)
   for (let i = 0; LABELS.length > i; i += 1) {
     await getExistingEvents(LABELS[i]);
   }

@@ -1,6 +1,5 @@
 // @ts-nocheck
 import { la_ropsten } from '../../contracts/config';
-// import transferNFTService from '../../services/transferNFT.service';
 
 const getStartBlock = async allTransferNFT => {
   const { contract } = la_ropsten;
