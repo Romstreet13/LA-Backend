@@ -1,14 +1,35 @@
 // @ts-nocheck
 import db from '../db/connect';
+import { cl } from '../logger';
 
-const getTransferNFT = async () => await db.TransferNFT.findAll();
+// GET all transfer NFT
+const getAllTransferNFT = async () => await db.TransferNFT.findAll();
 
-// const createTransferNFT = async data =>
-//   await db.Test.bulkCreate(data, {
-//     ignoreDuplicates: true,
-//   });
+// POST
+const createExistingTransferNFT = async data => {
+  cl.mt(' * POST createExistingTransferNFT');
+
+  const result = await db.TransferNFT.bulkCreate(data, {
+    ignoreDuplicates: true,
+  });
+
+  return result;
+};
+
+// POST
+const createTransferNFT = async data => {
+  cl.mt(' * POST createTransferNFT');
+
+  try {
+    const result = await db.TransferNFT.create(data);
+    return result.dataValues;
+  } catch (err) {
+    return err.message;
+  }
+};
 
 export default {
-  getTransferNFT,
-  // createTransferNFT,
+  getAllTransferNFT,
+  createExistingTransferNFT,
+  createTransferNFT,
 };
